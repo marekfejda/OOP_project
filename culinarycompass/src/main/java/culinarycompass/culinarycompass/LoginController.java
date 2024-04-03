@@ -54,6 +54,8 @@ public class LoginController {
                 stage.setTitle("Select Your Food/Groceries");
                 stage.setScene(new Scene(root, 700, 300));
                 stage.show();
+
+                ((Stage) nicknameField.getScene().getWindow()).close();
             } catch (IOException e) {
                 e.printStackTrace();
                 showMessage("Failed to load the food selection screen.", Color.RED);
