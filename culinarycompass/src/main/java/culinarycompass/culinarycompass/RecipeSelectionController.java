@@ -64,6 +64,22 @@ public class RecipeSelectionController {
     }
 
     private void showRecipeDetails(Recipe recipe) {
-        System.out.println("Recipe selected: " + recipe.getName());
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RecipeDetails.fxml"));
+            Parent root = loader.load();
+
+            RecipeDetailsController recipeDetailsController = loader.getController();
+            recipeDetailsController.setRecipe(recipe);
+
+            Stage stage = new Stage();
+            stage.setTitle(recipe.getName());
+            stage.setScene(new Scene(root));
+            stage.setWidth(715);
+            stage.setHeight(340);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="rootVBox" xmlns:fx="http://javafx.com/fxml/1" fx:controller="culinarycompass.culinarycompass.RecipeDetailsController" spacing="10">
+    <Label fx:id="nameLabel"/>
+    <Label fx:id="ingredientsLabel"/>
+    <Label fx:id="timeEstimationLabel"/>
+    <Label fx:id="portionsLabel"/>
+    <Label fx:id="recipeTextLabel"/>
+    <Button text="Back" onAction="#handleBack"/>
+</VBox>
