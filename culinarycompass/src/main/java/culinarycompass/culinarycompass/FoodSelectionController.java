@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxListCell;
@@ -23,6 +24,8 @@ public class FoodSelectionController {
     private ListView<Ingredient> foodList;
     @FXML
     private TextField searchField;
+    @FXML
+    private Label messageLabel;
 
     private ObservableList<Ingredient> masterList = FXCollections.observableArrayList();
     private List<Recipe> allRecipes;
@@ -32,6 +35,8 @@ public class FoodSelectionController {
 
     @FXML
     protected void initialize() {
+        messageLabel.setManaged(false);
+        messageLabel.setVisible(false);
         masterList.addAll(
                 new Ingredient("Apples"), new Ingredient("Bread"), new Ingredient("Cheese"),
                 new Ingredient("Milk"), new Ingredient("Eggs"), new Ingredient("Tomatoes"),
@@ -110,6 +115,7 @@ public class FoodSelectionController {
 
         if (!possibleRecipes.isEmpty()) {
             try {
+                showMessage("");
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("RecipeSelection.fxml"));
                 Parent root = loader.load();
 
@@ -132,9 +138,21 @@ public class FoodSelectionController {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("No recipes found with the selected ingredients.");
+            showMessage("No recipes found with the selected ingredients.");
         }
     }
 
 
+
+    private void showMessage(String message) {
+        if (message == null || message.isEmpty()) {
+            messageLabel.setText("");
+            messageLabel.setManaged(false);
+            messageLabel.setVisible(false);
+        } else {
+            messageLabel.setText(message);
+            messageLabel.setManaged(true);
+            messageLabel.setVisible(true);
+        }
+    }
 }

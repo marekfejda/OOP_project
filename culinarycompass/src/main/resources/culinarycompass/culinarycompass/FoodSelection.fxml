@@ -6,5 +6,6 @@
 <VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="culinarycompass.culinarycompass.FoodSelectionController">
     <TextField fx:id="searchField" promptText="Search..."/>
     <ListView fx:id="foodList"/>
+    <Label fx:id="messageLabel"/>
     <Button text="Confirm Selection" onAction="#handleConfirm"/>
 </VBox>
