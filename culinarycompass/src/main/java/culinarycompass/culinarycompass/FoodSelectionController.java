@@ -55,7 +55,6 @@ public class FoodSelectionController {
         );
 
         foodList.setItems(masterList);
-
         foodList.setCellFactory(CheckBoxListCell.forListView(Ingredient::selectedProperty));
 
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -91,6 +90,18 @@ public class FoodSelectionController {
         System.out.println("User set: " + user);
         // If you want to load the user's inventory when they arrive at the food selection screen
 //         loadInventory();
+
+        // Reapply ingredient selections now that user is guaranteed to be set
+        reapplyIngredientSelections();
+    }
+
+    private void reapplyIngredientSelections() {
+        if (user != null && user.getInventory() != null) {
+            Set<String> selectedIngredientNames = user.getInventory().getSelectedIngredients();
+            for (Ingredient ingredient : masterList) {
+                ingredient.setSelected(selectedIngredientNames.contains(ingredient.getName()));
+            }
+        }
     }
 
     public void setAllRecipes(List<Recipe> recipes) {
@@ -103,9 +114,8 @@ public class FoodSelectionController {
                 .filter(Ingredient::isSelected)
                 .map(Ingredient::getName)
                 .collect(Collectors.toSet());
-
-        user.updateInventory(selectedIngredients); // Update the user's inventory with selected ingredients
-
+        user.updateInventory(selectedIngredients);
+        user.getInventory().updateSelectedIngredients(selectedIngredients);
         // Reintroduce the original recipe matching logic here
         List<Recipe> possibleRecipes = allRecipes.stream()
                 .filter(recipe -> user.getInventory().getIngredients().containsAll(

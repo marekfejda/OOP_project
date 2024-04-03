@@ -5,6 +5,7 @@ import java.util.Set;
 
 public class Inventory {
     private final Set<String> ingredients = new HashSet<>();
+    private final Set<String> selectedIngredients = new HashSet<>();
 
     public void addIngredient(String ingredient) {
         ingredients.add(ingredient.toLowerCase()); // Store all ingredients in lowercase to avoid case sensitivity issues
@@ -34,6 +35,15 @@ public class Inventory {
     // This method could be used to load the inventory's state when the application starts
     public void loadInventory() {
         // Implement loading logic from file or database
+    }
+
+    public void updateSelectedIngredients(Set<String> selectedIngredientNames) {
+        selectedIngredients.clear();
+        selectedIngredients.addAll(selectedIngredientNames);
+    }
+
+    public Set<String> getSelectedIngredients() {
+        return new HashSet<>(selectedIngredients);
     }
 
     @Override
