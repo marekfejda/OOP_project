@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
@@ -111,10 +112,9 @@ public class FoodSelectionController {
                 .map(Ingredient::getName)
                 .collect(Collectors.toSet());
 
-        // Update the user's inventory with selected ingredients
-        user.updateInventory(selectedIngredients);
+        user.updateInventory(selectedIngredients); // Update the user's inventory with selected ingredients
 
-        // Determine possible recipes
+        // Reintroduce the original recipe matching logic here
         List<Recipe> possibleRecipes = allRecipes.stream()
                 .filter(recipe -> user.getInventory().getIngredients().containsAll(
                         recipe.getIngredients().stream().map(String::toLowerCase).collect(Collectors.toSet())
@@ -124,23 +124,25 @@ public class FoodSelectionController {
         if (!possibleRecipes.isEmpty()) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("RecipeSelection.fxml"));
-                // Load the root which is a ScrollPane
-                ScrollPane root = loader.load();
+                Parent root = loader.load();
 
                 RecipeSelectionController recipeSelectionController = loader.getController();
-                recipeSelectionController.setRecipes(possibleRecipes); // Set recipes directly in the controller
+                recipeSelectionController.setRecipes(possibleRecipes);
 
                 Stage stage = new Stage();
                 stage.setTitle("Select a Recipe");
                 stage.setScene(new Scene(root));
                 stage.show();
+
+                // Close the current window
+                Stage currentStage = (Stage) foodList.getScene().getWindow();
+                currentStage.close();
+
             } catch (IOException e) {
                 e.printStackTrace();
-                // Handle exception
             }
         } else {
             System.out.println("No recipes found with the selected ingredients.");
-            // You can show an alert or a message on the current window instead of printing to the console
         }
     }
 
