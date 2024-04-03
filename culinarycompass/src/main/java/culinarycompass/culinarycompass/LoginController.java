@@ -52,7 +52,7 @@ public class LoginController {
 
                 Stage stage = new Stage();
                 stage.setTitle("Select Your Food/Groceries");
-                stage.setScene(new Scene(root, 700, 400));
+                stage.setScene(new Scene(root, 700, 300));
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();

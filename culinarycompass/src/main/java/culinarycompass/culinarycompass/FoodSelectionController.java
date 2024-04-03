@@ -7,12 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -26,6 +26,9 @@ public class FoodSelectionController {
 
     private ObservableList<Ingredient> masterList = FXCollections.observableArrayList();
     private List<Recipe> allRecipes;
+    private User user;
+    private Inventory inventory = new Inventory();
+
 
     @FXML
     protected void initialize() {
@@ -63,47 +66,31 @@ public class FoodSelectionController {
                 foodList.setItems(filteredList);
             }
         });
+        populateAllRecipes();
     }
 
-    private Inventory inventory = new Inventory();
-    private User user;
+    private void populateAllRecipes() {
+        try {
+            this.allRecipes = Recipe.loadRecipesFromFile("recipes.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+            // You could log this exception or provide some fallback behavior here
+            // For example, initializing allRecipes as an empty list to avoid NullPointerException
+            this.allRecipes = new ArrayList<>();
+        }
+    }
+
+
     public void setUser(User user) {
         this.user = user;
+        System.out.println("User set: " + user);
         // If you want to load the user's inventory when they arrive at the food selection screen
-        // loadInventory();
+//         loadInventory();
     }
 
     public void setAllRecipes(List<Recipe> recipes) {
         this.allRecipes = recipes;
     }
-
-
-    public List<Recipe> printPossibleRecipes() {
-        Set<String> selectedIngredients = masterList.stream()
-                .filter(Ingredient::isSelected)
-                .map(Ingredient::getName)
-                .collect(Collectors.toSet());
-
-        List<Recipe> possibleRecipes = allRecipes.stream()
-                .filter(recipe -> user.getInventory().getIngredients().containsAll(
-                        recipe.getIngredients().stream().map(String::toLowerCase).collect(Collectors.toSet())
-                ))
-                .collect(Collectors.toList());
-
-        if (!possibleRecipes.isEmpty()) {
-            possibleRecipes.forEach(recipe -> {
-                System.out.println("Recipe you can cook: " + recipe.getName());
-                System.out.println("Ingredients: " + String.join(", ", recipe.getIngredients()));
-                System.out.println("Time to cook: " + recipe.getTimeEstimation());
-                System.out.println("Portions: " + recipe.getPortions());
-                System.out.println("Instructions: " + recipe.getRecipeText());
-                System.out.println("----------");
-            });
-        }
-
-        return possibleRecipes;
-    }
-
 
     @FXML
     protected void handleConfirm() {
@@ -128,10 +115,13 @@ public class FoodSelectionController {
 
                 RecipeSelectionController recipeSelectionController = loader.getController();
                 recipeSelectionController.setRecipes(possibleRecipes);
+                recipeSelectionController.setUser(this.user);
 
                 Stage stage = new Stage();
                 stage.setTitle("Select a Recipe");
                 stage.setScene(new Scene(root));
+                stage.setWidth(715);
+                stage.setHeight(340);
                 stage.show();
 
                 // Close the current window

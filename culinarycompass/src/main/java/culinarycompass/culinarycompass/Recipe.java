@@ -1,11 +1,10 @@
 package culinarycompass.culinarycompass;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Recipe {
     private int id;
@@ -118,6 +117,33 @@ public class Recipe {
                 ", portions=" + portions +
                 ", recipeText='" + recipeText + '\'' +
                 '}';
+    }
+
+    public static List<Recipe> loadAllRecipes() {
+        List<Recipe> recipes = new ArrayList<>();
+        File file = new File("recipes.txt"); // Assuming a file named recipes.txt
+
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                // Parse the line to create a Recipe object
+                // This is highly dependent on how your data is formatted
+                Recipe recipe = parseRecipeLine(line);
+                recipes.add(recipe);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return recipes;
+    }
+
+    private static Recipe parseRecipeLine(String line) {
+        // Implement parsing logic based on your file format
+        // This is just a placeholder
+        Recipe recipe = new Recipe();
+        // Set recipe properties based on the line content
+        return recipe;
     }
 
     // Main method just for testing purpose
