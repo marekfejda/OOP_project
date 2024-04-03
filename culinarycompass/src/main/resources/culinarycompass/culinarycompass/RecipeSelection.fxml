@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1" fx:controller="culinarycompass.culinarycompass.RecipeSelectionController">
+    <VBox fx:id="recipesBox" spacing="10">
+        <!-- Recipe buttons will be added here dynamically -->
+    </VBox>
+</ScrollPane>
