@@ -8,5 +8,7 @@
     <Label fx:id="timeEstimationLabel"/>
     <Label fx:id="portionsLabel"/>
     <Label fx:id="recipeTextLabel"/>
+    <Label fx:id="glutenFreeLabel" text="Gluten-Free" visible="false"/>
+    <Label fx:id="vegetarianLabel" text="Vegetarian" visible="false"/>
     <Button text="Back" onAction="#handleBack"/>
 </VBox>

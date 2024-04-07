@@ -18,6 +18,10 @@ public class RecipeDetailsController {
     private Label portionsLabel;
     @FXML
     private Label recipeTextLabel;
+    @FXML
+    private Label glutenFreeLabel;
+    @FXML
+    private Label vegetarianLabel;
 
     public void setRecipe(Recipe recipe) {
         rootVBox.setPadding(new Insets(10, 10, 10, 10));
@@ -26,6 +30,9 @@ public class RecipeDetailsController {
         timeEstimationLabel.setText("Time: " + recipe.getTimeEstimation());
         portionsLabel.setText("Portions: " + recipe.getPortions());
         recipeTextLabel.setText("Recipe: " + recipe.getRecipeText());
+
+        glutenFreeLabel.setVisible(recipe.isGlutenFree());
+        vegetarianLabel.setVisible(recipe.isVegetarian());
     }
 
     @FXML

@@ -8,7 +8,7 @@ PS: na testovacie ucely odporucam vybrat/oznacit minimalne prve 3 suroviny (Appl
 
 KRITERIA:
 1) dedenie - baseController a LoginController - showMessage, setMessageTextColor, v buducnosti dalsie...
-2) polymorfizmus
+2) polymorfizmus - umožňuje receptom mať odlišné vlastnosti - bezlepkový alebo vegetariánsky "badge". Keď aplikácia zobrazuje recepty, môže dynamicky prispôsobiť obsah a grafiku bez ohľadu na ich špecifický typ. Neskor sa na zaklade tohoto rozdelenia bude zobrazovat samotna ikonka / badge. Zatial je vypisana len pravdivostna hodnota.
 3) agregacia - User má Inventory. User obsahuje Inventory, ale Inventory môže existovať nezávisle od User.
 4) oddelenie aplikacnej logiky a pouzivatelskeho rozhrania - ANO - fxml, controllery, zvysok...
 
