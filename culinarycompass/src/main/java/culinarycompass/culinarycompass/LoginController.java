@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class LoginController {
+public class LoginController extends BaseController{
 
     @FXML
     private TextField nicknameField;
@@ -39,7 +39,8 @@ public class LoginController {
         Optional<User> user = authenticate(nickname, password);
         if (user.isPresent()) {
             authenticatedUser = user.get();
-            showMessage("You have successfully logged in!", Color.GREEN);
+            setMessageTextColor(Color.GREEN);
+            showMessage("You have successfully logged in!");
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("FoodSelection.fxml"));
                 Parent root = loader.load();
@@ -58,10 +59,12 @@ public class LoginController {
                 ((Stage) nicknameField.getScene().getWindow()).close();
             } catch (IOException e) {
                 e.printStackTrace();
-                showMessage("Failed to load the food selection screen.", Color.RED);
+                setMessageTextColor(Color.RED);
+                showMessage("Failed to load the food selection screen.");
             }
         } else {
-            showMessage("Incorrect nickname or password.", Color.RED);
+            setMessageTextColor(Color.RED);
+            showMessage("Incorrect nickname or password.");
         }
     }
     @FXML
@@ -69,16 +72,20 @@ public class LoginController {
         String nickname = nicknameField.getText();
         String password = passwordField.getText();
         if (nickname.isEmpty() || password.isEmpty()) {
-            showMessage("Nickname and password cannot be empty.", Color.RED);
+            setMessageTextColor(Color.RED);
+            showMessage("Nickname and password cannot be empty.");
             return;
         }
         if (userExists(nickname)) {
-            showMessage("User with this nickname already exists.", Color.RED);
+            setMessageTextColor(Color.RED);
+            showMessage("User with this nickname already exists.");
         } else {
             if (registerNewUser(nickname, password)) {
-                showMessage("User has been registered successfully!", Color.GREEN);
+                setMessageTextColor(Color.GREEN);
+                showMessage("User has been registered successfully!");
             } else {
-                showMessage("There was an error registering the user.", Color.RED);
+                setMessageTextColor(Color.RED);
+                showMessage("There was an error registering the user.");
             }
         }
     }
@@ -123,10 +130,5 @@ public class LoginController {
         Optional<User> maxIdUser = loadUsers().stream()
                 .max((u1, u2) -> Integer.compare(Integer.parseInt(u1.getId()), Integer.parseInt(u2.getId())));
         return maxIdUser.map(u -> Integer.parseInt(u.getId()) + 1).orElse(1);
-    }
-
-    private void showMessage(String message, Color color) {
-        messageLabel.setTextFill(color);
-        messageLabel.setText(message);
     }
 }
