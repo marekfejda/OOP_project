@@ -82,4 +82,27 @@ public class RecipeSelectionController {
         }
     }
 
+    @FXML
+    protected void handleSignOut() {
+        if (user != null) {
+            user.saveSelectedIngredients(); // Save the selected ingredients
+        }
+
+        try {
+            // Load login screen
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginScreen.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Login");
+            stage.setScene(new Scene(root, 700, 300));
+            stage.show();
+
+            // Close the current window (the recipe selection screen)
+            Stage currentStage = (Stage) backButton.getScene().getWindow();
+            currentStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

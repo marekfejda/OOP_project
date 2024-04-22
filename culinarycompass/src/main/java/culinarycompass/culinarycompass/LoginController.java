@@ -51,6 +51,9 @@ public class LoginController extends BaseController{
                 main application = main.getInstance();
                 foodSelectionController.setAllRecipes(application.getAllRecipes());
 
+                // After the user is authenticated
+                authenticatedUser.loadSelectedIngredients();
+
                 Stage stage = new Stage();
                 stage.setTitle("Select Your Food/Groceries");
                 stage.setScene(new Scene(root, 700, 300));

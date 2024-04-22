@@ -8,4 +8,5 @@
     <ListView fx:id="foodList"/>
     <Label fx:id="messageLabel"/>
     <Button text="Confirm Selection" onAction="#handleConfirm"/>
+    <Button text="Sign Out" onAction="#handleSignOut" />
 </VBox>

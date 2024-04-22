@@ -9,5 +9,6 @@
             <!-- Recipe buttons will be added here dynamically -->
         </VBox>
         <Button fx:id="backButton" text="Back" onAction="#handleBack" />
+        <Button fx:id="signOutButton" text="Sign Out" onAction="#handleSignOut" />
     </VBox>
 </ScrollPane>

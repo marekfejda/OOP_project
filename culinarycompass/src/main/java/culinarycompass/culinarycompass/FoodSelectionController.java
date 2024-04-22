@@ -88,21 +88,28 @@ public class FoodSelectionController {
     public void setUser(User user) {
         this.user = user;
         System.out.println("User set: " + user);
-        // If you want to load the user's inventory when they arrive at the food selection screen
-//         loadInventory();
 
-        // Reapply ingredient selections now that user is guaranteed to be set
+        // Load the user's selected ingredients
+        this.user.loadSelectedIngredients();
+
+        // Reapply ingredient selections now that user and their selections are guaranteed to be set
         reapplyIngredientSelections();
     }
+
 
     private void reapplyIngredientSelections() {
         if (user != null && user.getInventory() != null) {
             Set<String> selectedIngredientNames = user.getInventory().getSelectedIngredients();
-            for (Ingredient ingredient : masterList) {
-                ingredient.setSelected(selectedIngredientNames.contains(ingredient.getName()));
-            }
+
+            masterList.forEach(ingredient ->
+                    ingredient.setSelected(selectedIngredientNames.contains(ingredient.getName()))
+            );
+
+            // Refresh the ListView to update the UI
+            foodList.refresh();
         }
     }
+
 
     public void setAllRecipes(List<Recipe> recipes) {
         this.allRecipes = recipes;
@@ -152,6 +159,29 @@ public class FoodSelectionController {
         }
     }
 
+
+    @FXML
+    protected void handleSignOut() {
+        if (user != null) {
+            user.saveSelectedIngredients(); // Save the selected ingredients
+        }
+        try {
+            // Load login screen
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginScreen.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Login");
+            stage.setScene(new Scene(root, 700, 300));
+            stage.show();
+
+            // Close the current window (the food selection screen)
+            Stage currentStage = (Stage) foodList.getScene().getWindow();
+            currentStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showMessage("Failed to load the login screen.");
+        }
+    }
 
 
     private void showMessage(String message) {
