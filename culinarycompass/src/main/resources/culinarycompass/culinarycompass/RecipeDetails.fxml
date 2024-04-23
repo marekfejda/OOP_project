@@ -2,13 +2,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.image.ImageView?>
 <VBox fx:id="rootVBox" xmlns:fx="http://javafx.com/fxml/1" fx:controller="culinarycompass.culinarycompass.RecipeDetailsController" spacing="10">
     <Label fx:id="nameLabel"/>
     <Label fx:id="ingredientsLabel"/>
     <Label fx:id="timeEstimationLabel"/>
     <Label fx:id="portionsLabel"/>
     <Label fx:id="recipeTextLabel"/>
-    <Label fx:id="glutenFreeLabel" text="Gluten-Free" visible="false"/>
-    <Label fx:id="vegetarianLabel" text="Vegetarian" visible="false"/>
+    <ImageView fx:id="glutenFreeBadge" visible="false"/>
+    <ImageView fx:id="notGlutenFreeBadge" visible="false"/>
+    <ImageView fx:id="veganBadge" visible="false"/>
+    <ImageView fx:id="notVeganBadge" visible="false"/>
     <Button text="Back" onAction="#handleBack"/>
 </VBox>

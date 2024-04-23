@@ -134,6 +134,8 @@ public class Recipe {
                 ", timeEstimation='" + timeEstimation + '\'' +
                 ", portions=" + portions +
                 ", recipeText='" + recipeText + '\'' +
+                ", isGlutenFree=" + isGlutenFree +
+                ", isVegetarian=" + isVegetarian +
                 '}';
     }
 
