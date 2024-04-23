@@ -48,7 +48,7 @@ public class User {
     }
 
     public void saveSelectedIngredients() {
-        try (PrintWriter out = new PrintWriter(new FileOutputStream("user_" + id + nickname + "_selections.txt"))) {
+        try (PrintWriter out = new PrintWriter(new FileOutputStream("user_" + id + "_" + nickname + "_ingredients.txt"))) {
             for (String ingredient : inventory.getSelectedIngredients()) {
                 out.println(ingredient);
             }
@@ -58,7 +58,7 @@ public class User {
     }
 
     public void loadSelectedIngredients() {
-        File file = new File("user_" + id + nickname + "_selections.txt");
+        File file = new File("user_" + id + "_" + nickname + "_ingredients.txt");
         System.out.println("Loading selections from: " + file.getAbsolutePath()); // For debugging
         if (file.exists()) {
             try (Scanner scanner = new Scanner(file)) {
