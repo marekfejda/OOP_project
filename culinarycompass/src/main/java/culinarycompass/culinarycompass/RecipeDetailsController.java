@@ -17,9 +17,7 @@ public class RecipeDetailsController {
     @FXML
     private Label ingredientsLabel;
     @FXML
-    private Label timeEstimationLabel;
-    @FXML
-    private Label portionsLabel;
+    private Label timeAndPortionsLabel;
     @FXML
     private Label recipeTextLabel;
     @FXML
@@ -36,8 +34,7 @@ public class RecipeDetailsController {
         rootAnchorPane.setPadding(new Insets(10, 10, 10, 10));
         nameLabel.setText(recipe.getName());
         ingredientsLabel.setText("Ingredients: " + String.join(", ", recipe.getIngredients()));
-        timeEstimationLabel.setText("Time: " + recipe.getTimeEstimation());
-        portionsLabel.setText("Portions: " + recipe.getPortions());
+        timeAndPortionsLabel.setText("Time: " + recipe.getTimeEstimation() + ", Portions: " + recipe.getPortions());
 
         recipeTextLabel.setWrapText(true);
         recipeTextLabel.setMaxWidth(600);
