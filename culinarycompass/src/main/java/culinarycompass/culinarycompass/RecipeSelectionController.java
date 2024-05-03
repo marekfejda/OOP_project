@@ -30,6 +30,12 @@ public class RecipeSelectionController {
         for (Recipe recipe : recipes) {
             Button recipeButton = new Button(recipe.getName());
             recipeButton.setOnAction(event -> showRecipeDetails(recipe));
+            // Set the minimum width of the button
+//            recipeButton.setMinWidth(USE_COMPUTED_SIZE); // Set it to USE_COMPUTED_SIZE or specify a numerical value
+            recipeButton.setMinWidth(660);
+            recipeButton.setMinHeight(50);
+            // Ensure that the button stretches to fill the horizontal space in the VBox
+//            recipeButton.setMaxWidth(Double.MAX_VALUE); // This makes the button stretch to fill the space
             recipesBox.getChildren().add(recipeButton);
         }
     }
