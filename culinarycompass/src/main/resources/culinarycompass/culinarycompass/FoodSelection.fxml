@@ -9,4 +9,5 @@
     <Label fx:id="messageLabel"/>
     <Button text="Confirm Selection" onAction="#handleConfirm"/>
     <Button text="Sign Out" onAction="#handleSignOut" />
+    <Button text="Select All" onAction="#selectAllFoods" />
 </VBox>

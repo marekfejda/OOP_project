@@ -195,4 +195,14 @@ public class FoodSelectionController {
             messageLabel.setVisible(true);
         }
     }
+
+    @FXML
+    protected void selectAllFoods() {
+        // Loop through the masterList and set all ingredients to selected
+        masterList.forEach(ingredient -> ingredient.setSelected(true));
+
+        // Refresh the ListView to update the UI
+        foodList.refresh();
+        user.saveSelectedIngredients();
+    }
 }
