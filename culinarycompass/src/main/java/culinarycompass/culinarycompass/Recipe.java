@@ -19,6 +19,7 @@ public class Recipe {
     // Constructors
     public Recipe() {
         // Default constructor
+        this.ingredients = new ArrayList<>();
     }
 
     // Setters
@@ -92,9 +93,11 @@ public class Recipe {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
+                System.out.println("Reading line: " + line); // Debug print
                 if ("---".equals(line.trim())) {
                     Recipe recipe = new Recipe();
-                    while ((line = reader.readLine()) != null && !line.trim().equals("---")) {
+                    while ((line = reader.readLine()) != null) {
+                        System.out.println("Processing line: " + line); // Debug print
                         if (line.startsWith("ID:")) {
                             recipe.setId(Integer.parseInt(line.substring(4).trim()));
                         } else if (line.startsWith("Name:")) {
@@ -105,6 +108,10 @@ public class Recipe {
                             recipe.setTimeEstimation(line.substring(15).trim());
                         } else if (line.startsWith("Portions:")) {
                             recipe.setPortions(Integer.parseInt(line.substring(9).trim().split(" ")[0]));
+                        } else if (line.startsWith("IsGlutenFree:")) {
+                            recipe.setGlutenFree(Boolean.parseBoolean(line.substring(13).trim()));
+                        } else if (line.startsWith("IsVegetarian:")) {
+                            recipe.setVegetarian(Boolean.parseBoolean(line.substring(13).trim()));
                         } else if (line.startsWith("Recipe:")) {
                             StringBuilder recipeTextBuilder = new StringBuilder(line.substring(7).trim());
                             while ((line = reader.readLine()) != null && !line.trim().equals("---")) {
@@ -112,13 +119,10 @@ public class Recipe {
                             }
                             recipe.setRecipeText(recipeTextBuilder.toString());
                             break; // End reading the current recipe section
-                        } else if (line.startsWith("IsGlutenFree:")) {
-                            recipe.setGlutenFree(Boolean.parseBoolean(line.substring(13).trim()));
-                        } else if (line.startsWith("IsVegetarian:")) {
-                            recipe.setVegetarian(Boolean.parseBoolean(line.substring(13).trim()));
                         }
                     }
                     recipes.add(recipe);
+                    System.out.println("Added recipe: " + recipe.getName()); // Debug print
                 }
             }
         }

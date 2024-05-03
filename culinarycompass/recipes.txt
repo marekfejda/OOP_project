@@ -8,6 +8,7 @@ TimeEstimation: 30 minutes
 Portions: 2
 Recipe: Cook pasta according to package instructions. In a separate pan, sauté garlic in olive oil. Add tomatoes and basil and cook until soft. Combine with pasta and serve.
 ---
+---
 ID: 2
 Name: Omelette
 IsGlutenFree: true
@@ -16,6 +17,7 @@ Ingredients: eggs, cheese, salt, pepper, ham, bell peppers
 TimeEstimation: 15 minutes
 Portions: 1
 Recipe: Beat the eggs with salt and pepper. Pour into a heated pan. Add ham, bell peppers, and cheese. Cook until the eggs are set. Fold and serve.
+---
 ---
 ID: 3
 Name: Chicken Salad
@@ -26,6 +28,7 @@ TimeEstimation: 20 minutes
 Portions: 2
 Recipe: Cook chicken breast and slice it. Combine mixed greens, cherry tomatoes, and cucumber in a bowl. Top with chicken slices. Dress with olive oil, lemon juice, salt, and pepper.
 ---
+---
 ID: 4
 Name: Grilled Cheese Sandwich
 IsGlutenFree: false
@@ -34,6 +37,7 @@ Ingredients: bread, butter, cheddar cheese
 TimeEstimation: 10 minutes
 Portions: 1
 Recipe: Butter one side of each bread slice. Place cheese between the unbuttered sides. Cook in a pan until bread is golden and cheese is melted.
+---
 ---
 ID: 5
 Name: Vegetable Stir-Fry
@@ -44,6 +48,7 @@ TimeEstimation: 20 minutes
 Portions: 2
 Recipe: Sauté garlic and ginger in olive oil. Add mixed vegetables and stir-fry until tender-crisp. Add soy sauce and stir well.
 ---
+---
 ID: 6
 Name: Banana Smoothie
 IsGlutenFree: true
@@ -52,6 +57,7 @@ Ingredients: banana, milk, honey, ice cubes
 TimeEstimation: 5 minutes
 Portions: 1
 Recipe: Blend banana, milk, honey, and ice cubes until smooth. Serve immediately.
+---
 ---
 ID: 7
 Name: Garlic Shrimp
@@ -62,6 +68,7 @@ TimeEstimation: 15 minutes
 Portions: 2
 Recipe: Sauté garlic in butter. Add shrimp, cooking until pink. Season with lemon juice, parsley, salt, and pepper.
 ---
+---
 ID: 8
 Name: Quinoa Salad
 IsGlutenFree: true
@@ -70,6 +77,7 @@ Ingredients: quinoa, cherry tomatoes, cucumber, feta cheese, olive oil, lemon ju
 TimeEstimation: 30 minutes
 Portions: 2
 Recipe: Cook quinoa and let cool. Mix with cherry tomatoes, cucumber, and feta. Dress with olive oil, lemon juice, salt, and pepper.
+---
 ---
 ID: 9
 Name: Pancakes
@@ -80,6 +88,7 @@ TimeEstimation: 20 minutes
 Portions: 3
 Recipe: Mix flour, sugar, baking powder, and salt. Stir in milk, egg, and melted butter until smooth. Cook in a pan until golden.
 ---
+---
 ID: 10
 Name: Avocado Toast
 IsGlutenFree: false
@@ -88,6 +97,7 @@ Ingredients: bread, avocado, salt, pepper, lemon juice
 TimeEstimation: 5 minutes
 Portions: 1
 Recipe: Toast bread. Mash avocado with lemon juice, salt, and pepper. Spread on toast.
+---
 ---
 ID: 11
 Name: Lentil Soup
@@ -98,6 +108,7 @@ TimeEstimation: 45 minutes
 Portions: 4
 Recipe: Sauté onion, carrot, celery, and garlic in olive oil. Add lentils, tomatoes, and broth. Simmer until lentils are tender. Season with salt and pepper.
 ---
+---
 ID: 12
 Name: Baked Salmon
 IsGlutenFree: true
@@ -107,8 +118,9 @@ TimeEstimation: 25 minutes
 Portions: 2
 Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
 ---
+---
 ID: 13
-Name: TEST
+Name: A
 IsGlutenFree: true
 IsVegetarian: false
 Ingredients: Apples
@@ -116,8 +128,9 @@ TimeEstimation: 25 minutes
 Portions: 2
 Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through. Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through. Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
 ---
+---
 ID: 14
-Name: TEST 2
+Name: TEST 0
 IsGlutenFree: false
 IsVegetarian: false
 Ingredients: apples, tvoja mama, rododendron
@@ -125,8 +138,69 @@ TimeEstimation: 25 minutes
 Portions: 2
 Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
 ---
+---
 ID: 15
-Name: TEST 3
+Name: B
+IsGlutenFree: false
+IsVegetarian: true
+Ingredients: apples, bread, Cheese
+TimeEstimation: 25 minutes
+Portions: 2
+Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
+---
+---
+ID: 16
+Name: CCCC
+IsGlutenFree: false
+IsVegetarian: true
+Ingredients: apples, bread, Cheese
+TimeEstimation: 25 minutes
+Portions: 2
+Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
+---
+---
+ID: 17
+Name: D
+IsGlutenFree: false
+IsVegetarian: true
+Ingredients: apples, bread, Cheese
+TimeEstimation: 25 minutes
+Portions: 2
+Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
+---
+---
+ID: 18
+Name: E
+IsGlutenFree: false
+IsVegetarian: true
+Ingredients: apples, bread, Cheese
+TimeEstimation: 25 minutes
+Portions: 2
+Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
+---
+---
+ID: 19
+Name: F
+IsGlutenFree: false
+IsVegetarian: true
+Ingredients: apples, bread, Cheese
+TimeEstimation: 25 minutes
+Portions: 2
+Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
+---
+---
+ID: 20
+Name: G
+IsGlutenFree: false
+IsVegetarian: true
+Ingredients: apples, bread, Cheese
+TimeEstimation: 25 minutes
+Portions: 2
+Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
+---
+---
+ID: 21
+Name: H
 IsGlutenFree: false
 IsVegetarian: true
 Ingredients: apples, bread, Cheese
