@@ -6,11 +6,15 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 public class RecipeSelectionController {
 
@@ -28,15 +32,26 @@ public class RecipeSelectionController {
     public void setRecipes(List<Recipe> recipes) {
         recipesBox.getChildren().clear();
         for (Recipe recipe : recipes) {
+            HBox recipeItem = new HBox(10); // Creates an HBox with spacing of 10
+            recipeItem.setPadding(new Insets(5, 0, 5, 0)); // Optional padding
+
+            // Create an ImageView for the recipe image
+            ImageView imageView = new ImageView();
+            imageView.setFitWidth(100); // Set the width of the image
+            imageView.setFitHeight(60); // Set the height of the image
+            imageView.setPreserveRatio(true);
+
+            loadImage(imageView, recipe.getId()); // Load image based on recipe ID
+
+            // Create a Button for the recipe name
             Button recipeButton = new Button(recipe.getName());
             recipeButton.setOnAction(event -> showRecipeDetails(recipe));
-            // Set the minimum width of the button
-//            recipeButton.setMinWidth(USE_COMPUTED_SIZE); // Set it to USE_COMPUTED_SIZE or specify a numerical value
-            recipeButton.setMinWidth(660);
-            recipeButton.setMinHeight(50);
-            // Ensure that the button stretches to fill the horizontal space in the VBox
-//            recipeButton.setMaxWidth(Double.MAX_VALUE); // This makes the button stretch to fill the space
-            recipesBox.getChildren().add(recipeButton);
+            recipeButton.setMinWidth(560); // Adjust width to accommodate the image
+            recipeButton.setMinHeight(60);
+
+            // Add ImageView and Button to HBox
+            recipeItem.getChildren().addAll(imageView, recipeButton);
+            recipesBox.getChildren().add(recipeItem);
         }
     }
 
@@ -111,4 +126,14 @@ public class RecipeSelectionController {
         }
     }
 
+    private void loadImage(ImageView imageView, int recipeId) {
+        String imagePath = "/culinarycompass/culinarycompass/FoodPictures/jedlo" + recipeId + ".jpg";
+        try {
+            Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath)));
+            imageView.setImage(image);
+        } catch (NullPointerException e) {
+            System.out.println("Image not found: jedlo" + recipeId + ".jpg");
+            imageView.setImage(null); // Clear the image view if the image does not exist
+        }
+    }
 }
