@@ -28,6 +28,8 @@ public class RecipeDetailsController {
     private ImageView veganBadge;
     @FXML
     private ImageView notVeganBadge;
+    @FXML
+    private ImageView recipeImageView;
 
 
     public void setRecipe(Recipe recipe) {
@@ -37,10 +39,11 @@ public class RecipeDetailsController {
         timeAndPortionsLabel.setText("Time: " + recipe.getTimeEstimation() + ", Portions: " + recipe.getPortions());
 
         recipeTextLabel.setWrapText(true);
-        recipeTextLabel.setMaxWidth(600);
+        recipeTextLabel.setMaxWidth(420);
         recipeTextLabel.setText("Recipe: " + recipe.getRecipeText());
 
         configureBadges(recipe);
+        loadImage(recipe.getId());
     }
 
     private void configureBadges(Recipe recipe) {
@@ -73,6 +76,13 @@ public class RecipeDetailsController {
             veganBadge.setVisible(false);
         }
     }
+
+    private void loadImage(int recipeId) {
+        String imagePath = "/culinarycompass/culinarycompass/FoodPictures/jedlo" + recipeId + ".jpg";
+        Image image = new Image(getClass().getResourceAsStream(imagePath));
+        recipeImageView.setImage(image);
+    }
+
 
     @FXML
     protected void handleBack() {

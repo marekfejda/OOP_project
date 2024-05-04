@@ -9,10 +9,11 @@
     <Label fx:id="ingredientsLabel" text="Summary Info" style="-fx-font-size: 14px; -fx-text-fill: #666666;" wrapText="true" maxWidth="700.0" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="60"/>
     <Label fx:id="recipeTextLabel" text="Recipe Text" style="-fx-font-size: 14px; -fx-text-fill: #666666;" wrapText="true" maxWidth="600.0" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="90"/>
 <!--    @/culinarycompass/culinarycompass/likeIcons/liked.png-->
-    <Button text="Back" onAction="#handleBack" style="-fx-background-color: #5C6BC0; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;" AnchorPane.leftAnchor="20" AnchorPane.bottomAnchor="20"/>
+    <Button text="Back" onAction="#handleBack" style="-fx-background-color: #5C6BC0; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;" AnchorPane.leftAnchor="5" AnchorPane.bottomAnchor="5"/>
 
     <ImageView fx:id="glutenFreeBadge" visible="false" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" layoutX="555" layoutY="20"/>
     <ImageView fx:id="notGlutenFreeBadge" visible="false" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" layoutX="555" layoutY="20"/>
     <ImageView fx:id="veganBadge" visible="false" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" layoutX="625" layoutY="20"/>
     <ImageView fx:id="notVeganBadge" visible="false" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" layoutX="625" layoutY="20"/>
+    <ImageView fx:id="recipeImageView" layoutX="485" layoutY="135" fitWidth="200" preserveRatio="true" />
 </AnchorPane>
