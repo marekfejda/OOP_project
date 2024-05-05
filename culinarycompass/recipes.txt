@@ -1,5 +1,6 @@
 ---
 ID: 1
+Likes: 0
 Name: Tomato Pasta
 IsGlutenFree: false
 IsVegetarian: true
@@ -10,6 +11,7 @@ Recipe: Cook pasta according to package instructions. In a separate pan, sauté 
 ---
 ---
 ID: 2
+Likes: 0
 Name: Omelette
 IsGlutenFree: true
 IsVegetarian: false
@@ -20,6 +22,7 @@ Recipe: Beat the eggs with salt and pepper. Pour into a heated pan. Add ham, bel
 ---
 ---
 ID: 3
+Likes: 0
 Name: Chicken Salad
 IsGlutenFree: true
 IsVegetarian: false
@@ -30,6 +33,7 @@ Recipe: Cook chicken breast and slice it. Combine mixed greens, cherry tomatoes,
 ---
 ---
 ID: 4
+Likes: 0
 Name: Grilled Cheese Sandwich
 IsGlutenFree: false
 IsVegetarian: true
@@ -40,6 +44,7 @@ Recipe: Butter one side of each bread slice. Place cheese between the unbuttered
 ---
 ---
 ID: 5
+Likes: 0
 Name: Vegetable Stir-Fry
 IsGlutenFree: true
 IsVegetarian: true
@@ -50,6 +55,7 @@ Recipe: Sauté garlic and ginger in olive oil. Add mixed vegetables and stir-fry
 ---
 ---
 ID: 6
+Likes: 0
 Name: Banana Smoothie
 IsGlutenFree: true
 IsVegetarian: true
@@ -60,6 +66,7 @@ Recipe: Blend banana, milk, honey, and ice cubes until smooth. Serve immediately
 ---
 ---
 ID: 7
+Likes: 0
 Name: Garlic Shrimp
 IsGlutenFree: true
 IsVegetarian: false
@@ -70,6 +77,7 @@ Recipe: Sauté garlic in butter. Add shrimp, cooking until pink. Season with lem
 ---
 ---
 ID: 8
+Likes: 0
 Name: Quinoa Salad
 IsGlutenFree: true
 IsVegetarian: true
@@ -80,6 +88,7 @@ Recipe: Cook quinoa and let cool. Mix with cherry tomatoes, cucumber, and feta. 
 ---
 ---
 ID: 9
+Likes: 0
 Name: Pancakes
 IsGlutenFree: false
 IsVegetarian: true
@@ -90,6 +99,7 @@ Recipe: Mix flour, sugar, baking powder, and salt. Stir in milk, egg, and melted
 ---
 ---
 ID: 10
+Likes: 0
 Name: Avocado Toast
 IsGlutenFree: false
 IsVegetarian: true
@@ -100,6 +110,7 @@ Recipe: Toast bread. Mash avocado with lemon juice, salt, and pepper. Spread on 
 ---
 ---
 ID: 11
+Likes: 0
 Name: Lentil Soup
 IsGlutenFree: true
 IsVegetarian: true
@@ -110,6 +121,7 @@ Recipe: Sauté onion, carrot, celery, and garlic in olive oil. Add lentils, toma
 ---
 ---
 ID: 12
+Likes: 0
 Name: Baked Salmon
 IsGlutenFree: true
 IsVegetarian: false
@@ -120,6 +132,7 @@ Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic,
 ---
 ---
 ID: 13
+Likes: 12
 Name: A
 IsGlutenFree: true
 IsVegetarian: false
@@ -130,6 +143,7 @@ Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic,
 ---
 ---
 ID: 14
+Likes: 0
 Name: TEST 0
 IsGlutenFree: false
 IsVegetarian: false
@@ -140,6 +154,7 @@ Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic,
 ---
 ---
 ID: 15
+Likes: 0
 Name: B
 IsGlutenFree: false
 IsVegetarian: true
@@ -150,6 +165,7 @@ Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic,
 ---
 ---
 ID: 16
+Likes: 0
 Name: CCCC
 IsGlutenFree: false
 IsVegetarian: true
@@ -160,6 +176,7 @@ Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic,
 ---
 ---
 ID: 17
+Likes: 0
 Name: D
 IsGlutenFree: false
 IsVegetarian: true
@@ -170,6 +187,7 @@ Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic,
 ---
 ---
 ID: 18
+Likes: 0
 Name: E
 IsGlutenFree: false
 IsVegetarian: true
@@ -180,6 +198,7 @@ Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic,
 ---
 ---
 ID: 19
+Likes: 0
 Name: F
 IsGlutenFree: false
 IsVegetarian: true
@@ -190,6 +209,7 @@ Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic,
 ---
 ---
 ID: 20
+Likes: 0
 Name: G
 IsGlutenFree: false
 IsVegetarian: true
@@ -200,6 +220,7 @@ Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic,
 ---
 ---
 ID: 21
+Likes: 0
 Name: H
 IsGlutenFree: false
 IsVegetarian: true

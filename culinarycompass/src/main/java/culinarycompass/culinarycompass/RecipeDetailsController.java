@@ -30,6 +30,8 @@ public class RecipeDetailsController {
     private ImageView notVeganBadge;
     @FXML
     private ImageView recipeImageView;
+    @FXML
+    private Label likesLabel;
 
 
     public void setRecipe(Recipe recipe) {
@@ -41,6 +43,7 @@ public class RecipeDetailsController {
         recipeTextLabel.setWrapText(true);
         recipeTextLabel.setMaxWidth(420);
         recipeTextLabel.setText("Recipe: " + recipe.getRecipeText());
+        likesLabel.setText("Likes: " + recipe.getLikes());
 
         configureBadges(recipe);
         loadImage(recipe.getId());

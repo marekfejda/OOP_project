@@ -15,6 +15,7 @@ public class Recipe {
     private String recipeText;
     private boolean isGlutenFree;
     private boolean isVegetarian;
+    private int likes;
 
     // Constructors
     public Recipe() {
@@ -88,6 +89,15 @@ public class Recipe {
         isVegetarian = vegetarian;
     }
 
+    // Getters and Setters
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
     public static List<Recipe> loadRecipesFromFile(String filePath) throws IOException {
         List<Recipe> recipes = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -100,6 +110,8 @@ public class Recipe {
                         System.out.println("Processing line: " + line); // Debug print
                         if (line.startsWith("ID:")) {
                             recipe.setId(Integer.parseInt(line.substring(4).trim()));
+                        } else if (line.startsWith("Likes:")) {
+                            recipe.setLikes(Integer.parseInt(line.substring(6).trim()));
                         } else if (line.startsWith("Name:")) {
                             recipe.setName(line.substring(5).trim());
                         } else if (line.startsWith("Ingredients:")) {
@@ -122,7 +134,7 @@ public class Recipe {
                         }
                     }
                     recipes.add(recipe);
-                    System.out.println("Added recipe: " + recipe.getName()); // Debug print
+//                    System.out.println("Added recipe: " + recipe.getName()); // Debug print
                 }
             }
         }
