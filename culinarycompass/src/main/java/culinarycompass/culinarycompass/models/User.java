@@ -14,7 +14,6 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class User implements Serializable {
-    private static final long serialVersionUID = 1L;
     private final String id;
     private final String nickname;
     private final String password;
