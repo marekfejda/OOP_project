@@ -1,10 +1,12 @@
 package culinarycompass.culinarycompass.models;
 
+import culinarycompass.culinarycompass.interfaces.object2Str;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Inventory implements Serializable {
+public class Inventory implements Serializable, object2Str {
 
     private final Set<String> ingredients = new HashSet<>();
     private final Set<String> selectedIngredients = new HashSet<>();
@@ -49,9 +51,14 @@ public class Inventory implements Serializable {
     }
 
     @Override
-    public String toString() {
+    public String object2Str() {
         return "Inventory{" +
                 "ingredients=" + ingredients +
                 '}';
+    }
+
+    @Override
+    public String toString() {
+        return object2Str();
     }
 }

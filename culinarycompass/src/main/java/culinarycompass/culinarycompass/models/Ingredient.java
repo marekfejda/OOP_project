@@ -1,11 +1,12 @@
 package culinarycompass.culinarycompass.models;
 
+import culinarycompass.culinarycompass.interfaces.object2Str;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class Ingredient {
+public class Ingredient implements object2Str {
     private final StringProperty name = new SimpleStringProperty(this, "name");
     private final BooleanProperty selected = new SimpleBooleanProperty(this, "selected", false);
 
@@ -34,7 +35,12 @@ public class Ingredient {
     }
 
     @Override
-    public String toString() {
+    public String object2Str() {
         return getName();
+    }
+
+    @Override
+    public String toString() {
+        return object2Str();
     }
 }

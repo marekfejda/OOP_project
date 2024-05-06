@@ -7,8 +7,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import culinarycompass.culinarycompass.interfaces.Likeable;
+import culinarycompass.culinarycompass.interfaces.object2Str;
 
-public class Recipe implements Likeable{
+public class Recipe implements Likeable, object2Str {
     private int id;
     private String name;
     private List<String> ingredients;
@@ -156,7 +157,7 @@ public class Recipe implements Likeable{
     }
 
     @Override
-    public String toString() {
+    public String object2Str() {
         return "Recipe{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
@@ -167,6 +168,11 @@ public class Recipe implements Likeable{
                 ", isGlutenFree=" + isGlutenFree +
                 ", isVegetarian=" + isVegetarian +
                 '}';
+    }
+
+    @Override
+    public String toString() {
+        return object2Str();
     }
 
     public static List<Recipe> loadAllRecipes() {
