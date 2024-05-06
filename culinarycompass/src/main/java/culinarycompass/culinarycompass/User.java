@@ -59,7 +59,7 @@ public class User {
 
     public void loadSelectedIngredients() {
         File file = new File("user_" + id + "_" + nickname + "_ingredients.txt");
-        System.out.println("Loading selections from: " + file.getAbsolutePath()); // For debugging
+//        System.out.println("Loading selections from: " + file.getAbsolutePath()); // For debugging
         if (file.exists()) {
             try (Scanner scanner = new Scanner(file)) {
                 Set<String> loadedIngredients = new HashSet<>();

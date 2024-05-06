@@ -111,11 +111,11 @@ public class Recipe {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                System.out.println("Reading line: " + line); // Debug print
+//                System.out.println("Reading line: " + line); // Debug print
                 if ("---".equals(line.trim())) {
                     Recipe recipe = new Recipe();
                     while ((line = reader.readLine()) != null) {
-                        System.out.println("Processing line: " + line); // Debug print
+//                        System.out.println("Processing line: " + line); // Debug print
                         if (line.startsWith("ID:")) {
                             recipe.setId(Integer.parseInt(line.substring(4).trim()));
                         } else if (line.startsWith("Likes:")) {

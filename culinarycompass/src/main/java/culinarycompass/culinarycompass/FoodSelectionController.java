@@ -87,7 +87,7 @@ public class FoodSelectionController {
 
     public void setUser(User user) {
         this.user = user;
-        System.out.println("User set: " + user);
+//        System.out.println("User set: " + user);
 
         // Load the user's selected ingredients
         this.user.loadSelectedIngredients();

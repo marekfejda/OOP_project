@@ -58,7 +58,7 @@ public class RecipeSelectionController {
     // Method to set the user in the RecipeSelectionController
     public void setUser(User user) {
         this.user = user;
-        System.out.println("User set: " + user);
+//        System.out.println("User set: " + user);
     }
 
     @FXML
