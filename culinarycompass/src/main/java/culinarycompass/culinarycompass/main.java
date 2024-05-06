@@ -1,5 +1,6 @@
 package culinarycompass.culinarycompass;
 
+import culinarycompass.culinarycompass.models.Recipe;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

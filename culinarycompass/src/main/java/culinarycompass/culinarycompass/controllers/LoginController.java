@@ -1,5 +1,7 @@
-package culinarycompass.culinarycompass;
+package culinarycompass.culinarycompass.controllers;
 
+import culinarycompass.culinarycompass.main;
+import culinarycompass.culinarycompass.models.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -15,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class LoginController extends BaseController{
+public class LoginController extends culinarycompass.culinarycompass.controllers.BaseController {
 
     @FXML
     private TextField nicknameField;
@@ -42,7 +44,7 @@ public class LoginController extends BaseController{
             setMessageTextColor(Color.GREEN);
             showMessage("You have successfully logged in!");
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("FoodSelection.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/culinarycompass/culinarycompass/FoodSelection.fxml"));
                 Parent root = loader.load();
                 FoodSelectionController foodSelectionController = loader.getController();
                 foodSelectionController.setUser(authenticatedUser);

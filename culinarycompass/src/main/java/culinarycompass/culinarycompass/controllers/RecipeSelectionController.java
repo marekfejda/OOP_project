@@ -1,5 +1,7 @@
-package culinarycompass.culinarycompass;
+package culinarycompass.culinarycompass.controllers;
 
+import culinarycompass.culinarycompass.models.Recipe;
+import culinarycompass.culinarycompass.models.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -67,7 +69,7 @@ public class RecipeSelectionController {
             Stage currentStage = (Stage) backButton.getScene().getWindow();
             currentStage.close();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FoodSelection.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/culinarycompass/culinarycompass/FoodSelection.fxml"));
             Parent root = loader.load();
 
             FoodSelectionController foodSelectionController = loader.getController();
@@ -86,7 +88,7 @@ public class RecipeSelectionController {
 
     private void showRecipeDetails(Recipe recipe) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("RecipeDetails.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/culinarycompass/culinarycompass/RecipeDetails.fxml"));
             Parent root = loader.load();
 
             RecipeDetailsController recipeDetailsController = loader.getController();
@@ -112,7 +114,7 @@ public class RecipeSelectionController {
 
         try {
             // Load login screen
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/culinarycompass/culinarycompass/loginScreen.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Login");

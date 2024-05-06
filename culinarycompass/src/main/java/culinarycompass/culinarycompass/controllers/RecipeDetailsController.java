@@ -1,5 +1,7 @@
-package culinarycompass.culinarycompass;
+package culinarycompass.culinarycompass.controllers;
 
+import culinarycompass.culinarycompass.models.Recipe;
+import culinarycompass.culinarycompass.models.User;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;

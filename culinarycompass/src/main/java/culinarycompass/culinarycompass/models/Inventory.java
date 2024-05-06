@@ -1,4 +1,4 @@
-package culinarycompass.culinarycompass;
+package culinarycompass.culinarycompass.models;
 
 import java.util.HashSet;
 import java.util.Set;

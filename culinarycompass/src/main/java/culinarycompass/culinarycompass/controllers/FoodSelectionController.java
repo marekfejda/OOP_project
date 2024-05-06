@@ -1,5 +1,9 @@
-package culinarycompass.culinarycompass;
+package culinarycompass.culinarycompass.controllers;
 
+import culinarycompass.culinarycompass.models.Ingredient;
+import culinarycompass.culinarycompass.models.Inventory;
+import culinarycompass.culinarycompass.models.Recipe;
+import culinarycompass.culinarycompass.models.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -133,7 +137,7 @@ public class FoodSelectionController {
         if (!possibleRecipes.isEmpty()) {
             try {
                 showMessage("");
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("RecipeSelection.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/culinarycompass/culinarycompass/RecipeSelection.fxml"));
                 Parent root = loader.load();
 
                 RecipeSelectionController recipeSelectionController = loader.getController();
@@ -167,7 +171,7 @@ public class FoodSelectionController {
         }
         try {
             // Load login screen
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/culinarycompass/culinarycompass/loginScreen.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Login");

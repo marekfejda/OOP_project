@@ -1,4 +1,4 @@
-package culinarycompass.culinarycompass;
+package culinarycompass.culinarycompass.models;
 
 import java.io.*;
 import java.util.ArrayList;

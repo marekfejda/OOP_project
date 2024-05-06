@@ -1,4 +1,4 @@
-package culinarycompass.culinarycompass;
+package culinarycompass.culinarycompass.models;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;

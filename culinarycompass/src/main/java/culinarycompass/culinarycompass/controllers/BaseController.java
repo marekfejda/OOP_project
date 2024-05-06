@@ -1,4 +1,4 @@
-package culinarycompass.culinarycompass;
+package culinarycompass.culinarycompass.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

@@ -1,10 +1,11 @@
-package culinarycompass.culinarycompass;
+package culinarycompass.culinarycompass.models;
+
+import culinarycompass.culinarycompass.models.Inventory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
