@@ -2,6 +2,7 @@ package culinarycompass.culinarycompass.controllers;
 
 import culinarycompass.culinarycompass.main;
 import culinarycompass.culinarycompass.models.User;
+import culinarycompass.culinarycompass.exceptions.AuthenticationException;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -27,51 +28,55 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
     private Label messageLabel;
     private User authenticatedUser;
 
-    private Optional<User> authenticate(String nickname, String password) {
+    private User authenticate(String nickname, String password) throws AuthenticationException {
         List<User> users = loadUsers();
         return users.stream()
                 .filter(u -> u.getNickname().equals(nickname) && u.getPassword().equals(password))
-                .findFirst();
+                .findFirst()
+                .orElseThrow(() -> new AuthenticationException("Incorrect nickname or password."));
     }
+
 
     @FXML
     protected void handleLogin() {
         String nickname = nicknameField.getText();
         String password = passwordField.getText();
-        Optional<User> user = authenticate(nickname, password);
-        if (user.isPresent()) {
-            authenticatedUser = user.get();
+        try {
+            User user = authenticate(nickname, password);
+            authenticatedUser = user;
             setMessageTextColor(Color.GREEN);
             showMessage("You have successfully logged in!");
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/culinarycompass/culinarycompass/FoodSelection.fxml"));
-                Parent root = loader.load();
-                FoodSelectionController foodSelectionController = loader.getController();
-                foodSelectionController.setUser(authenticatedUser);
 
-                // Get the instance of the main application to retrieve recipes
-                main application = main.getInstance();
-                foodSelectionController.setAllRecipes(application.getAllRecipes());
+            // Load the food selection screen
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/culinarycompass/culinarycompass/FoodSelection.fxml"));
+            Parent root = loader.load();
+            FoodSelectionController foodSelectionController = loader.getController();
+            foodSelectionController.setUser(authenticatedUser);
 
-                // After the user is authenticated
-                authenticatedUser.loadSelectedIngredients();
+            // Get the instance of the main application to retrieve recipes
+            main application = main.getInstance();
+            foodSelectionController.setAllRecipes(application.getAllRecipes());
 
-                Stage stage = new Stage();
-                stage.setTitle("Select Your Food/Groceries");
-                stage.setScene(new Scene(root, 700, 300));
-                stage.show();
+            // After the user is authenticated
+            authenticatedUser.loadSelectedIngredients();
 
-                ((Stage) nicknameField.getScene().getWindow()).close();
-            } catch (IOException e) {
-                e.printStackTrace();
-                setMessageTextColor(Color.RED);
-                showMessage("Failed to load the food selection screen.");
-            }
-        } else {
+            Stage stage = new Stage();
+            stage.setTitle("Select Your Food/Groceries");
+            stage.setScene(new Scene(root, 700, 300));
+            stage.show();
+
+            // Close the current window
+            ((Stage) nicknameField.getScene().getWindow()).close();
+        } catch (AuthenticationException e) {
             setMessageTextColor(Color.RED);
-            showMessage("Incorrect nickname or password.");
+            showMessage(e.getMessage());
+        } catch (IOException e) {
+            setMessageTextColor(Color.RED);
+            showMessage("Failed to load the food selection screen.");
+            e.printStackTrace();
         }
     }
+
     @FXML
     protected void handleRegister() {
         String nickname = nicknameField.getText();
