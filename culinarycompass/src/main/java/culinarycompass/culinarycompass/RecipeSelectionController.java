@@ -91,6 +91,7 @@ public class RecipeSelectionController {
 
             RecipeDetailsController recipeDetailsController = loader.getController();
             recipeDetailsController.setRecipe(recipe);
+            recipeDetailsController.setUser(this.user);
 
             Stage stage = new Stage();
             stage.setTitle(recipe.getName());

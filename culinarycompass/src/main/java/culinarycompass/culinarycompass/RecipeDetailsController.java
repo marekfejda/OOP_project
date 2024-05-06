@@ -7,7 +7,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 
-import java.util.Objects;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.*;
 
 public class RecipeDetailsController {
     @FXML
@@ -32,22 +35,72 @@ public class RecipeDetailsController {
     private ImageView recipeImageView;
     @FXML
     private Label likesLabel;
+    @FXML
+    private ImageView likeIcon;
+    private User currentUser;
+    private Recipe currentRecipe;
+    private Set<Integer> likedRecipes = new HashSet<>(); // This stores the liked recipe IDs
 
-
+    public void setUser(User user) {
+        this.currentUser = user;
+        loadLikes();  // Load likes when setting the user
+    }
     public void setRecipe(Recipe recipe) {
+        this.currentRecipe = recipe;
         rootAnchorPane.setPadding(new Insets(10, 10, 10, 10));
         nameLabel.setText(recipe.getName());
+        updateLikeIcon();
         ingredientsLabel.setText("Ingredients: " + String.join(", ", recipe.getIngredients()));
         timeAndPortionsLabel.setText("Time: " + recipe.getTimeEstimation() + ", Portions: " + recipe.getPortions());
-
         recipeTextLabel.setWrapText(true);
         recipeTextLabel.setMaxWidth(420);
         recipeTextLabel.setText("Recipe: " + recipe.getRecipeText());
-        likesLabel.setText("Likes: " + recipe.getLikes());
+//        likesLabel.setText("Likes: " + recipe.getLikes());
+        likesLabel.setText(String.valueOf(currentRecipe.getLikes()));
 
         configureBadges(recipe);
         loadImage(recipe.getId());
+
+        // Ensure the like icon is updated every time the recipe is set
+
     }
+
+    private void updateLikeIcon() {
+        if (likedRecipes.contains(currentRecipe.getId())) {
+            likeIcon.setImage(new Image(getClass().getResourceAsStream("/culinarycompass/culinarycompass/likeIcons/liked.png")));
+        } else {
+            likeIcon.setImage(new Image(getClass().getResourceAsStream("/culinarycompass/culinarycompass/likeIcons/likedGhost.png")));
+        }
+    }
+
+    @FXML
+    protected void handleLike() {
+        if (likedRecipes.contains(currentRecipe.getId())) {
+            likedRecipes.remove(currentRecipe.getId());
+            currentRecipe.decrementLikes();
+            likeIcon.setImage(new Image(getClass().getResourceAsStream("/culinarycompass/culinarycompass/likeIcons/likedGhost.png")));
+        } else {
+            likedRecipes.add(currentRecipe.getId());
+            currentRecipe.incrementLikes();
+            likeIcon.setImage(new Image(getClass().getResourceAsStream("/culinarycompass/culinarycompass/likeIcons/liked.png")));
+        }
+        updateLikesDisplay();
+    }
+
+    private void updateLikesDisplay() {
+        likesLabel.setText(String.valueOf(currentRecipe.getLikes()));
+    }
+
+    private void saveLikes() {
+        try (PrintWriter out = new PrintWriter(new File("user_likes_" + currentUser.getId() + ".txt"))) {
+            for (Integer id : likedRecipes) {
+                out.println(id);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private void configureBadges(Recipe recipe) {
         int badge_size_px = 50;
@@ -84,6 +137,20 @@ public class RecipeDetailsController {
         String imagePath = "/culinarycompass/culinarycompass/FoodPictures/jedlo" + recipeId + ".jpg";
         Image image = new Image(getClass().getResourceAsStream(imagePath));
         recipeImageView.setImage(image);
+    }
+
+    private void loadLikes() {
+        File file = new File("user_likes_" + currentUser.getId() + ".txt");
+        likedRecipes.clear(); // Clear the current set of liked recipes
+        if (file.exists()) {
+            try (Scanner scanner = new Scanner(file)) {
+                while (scanner.hasNextInt()) {
+                    likedRecipes.add(scanner.nextInt());
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

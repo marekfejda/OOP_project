@@ -8,8 +8,8 @@
     <Label fx:id="timeAndPortionsLabel" text="Summary Info" style="-fx-font-size: 14px; -fx-text-fill: #666666;" wrapText="true" maxWidth="700.0" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="35"/>
     <Label fx:id="ingredientsLabel" text="Summary Info" style="-fx-font-size: 14px; -fx-text-fill: #666666;" wrapText="true" maxWidth="700.0" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="60"/>
     <Label fx:id="recipeTextLabel" text="Recipe Text" style="-fx-font-size: 14px; -fx-text-fill: #666666;" wrapText="true" maxWidth="600.0" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="90"/>
-<!--    @/culinarycompass/culinarycompass/likeIcons/liked.png-->
-    <Label fx:id="likesLabel" text="Likes: 0" style="-fx-font-size: 18px; -fx-text-fill: #666666;" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="35"/>
+    <Label fx:id="likesLabel" text="0" style="-fx-font-size: 18px; -fx-text-fill: #666666;" AnchorPane.leftAnchor="80" AnchorPane.topAnchor="227"/>
+    <ImageView fx:id="likeIcon" layoutX="126" layoutY="241" fitWidth="30" fitHeight="30" preserveRatio="true" onMouseClicked="#handleLike" pickOnBounds="true"/>
     <Button text="Back" onAction="#handleBack" style="-fx-background-color: #5C6BC0; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;" AnchorPane.leftAnchor="5" AnchorPane.bottomAnchor="5"/>
 
     <ImageView fx:id="glutenFreeBadge" visible="false" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" layoutX="555" layoutY="20"/>

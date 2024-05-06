@@ -98,6 +98,14 @@ public class Recipe {
         this.likes = likes;
     }
 
+    public void incrementLikes() {
+        this.likes++;
+    }
+
+    public void decrementLikes() {
+        this.likes--;
+    }
+
     public static List<Recipe> loadRecipesFromFile(String filePath) throws IOException {
         List<Recipe> recipes = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
