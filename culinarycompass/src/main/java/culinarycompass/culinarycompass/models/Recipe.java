@@ -6,7 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Recipe {
+import culinarycompass.culinarycompass.interfaces.Likeable;
+
+public class Recipe implements Likeable{
     private int id;
     private String name;
     private List<String> ingredients;
@@ -98,12 +100,16 @@ public class Recipe {
         this.likes = likes;
     }
 
+    @Override
     public void incrementLikes() {
         this.likes++;
     }
 
+    @Override
     public void decrementLikes() {
-        this.likes--;
+        if (this.likes > 0) { // Prevent likes from going negative
+            this.likes--;
+        }
     }
 
     public static List<Recipe> loadRecipesFromFile(String filePath) throws IOException {
