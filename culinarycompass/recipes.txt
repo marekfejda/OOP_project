@@ -1,231 +1,55 @@
 ---
 ID: 1
-Likes: 0
-Name: Tomato Pasta
+Likes: 5
+Name: Bryndzove Halusky
 IsGlutenFree: false
-IsVegetarian: true
-Ingredients: tomatoes, pasta, garlic, olive oil, basil
-TimeEstimation: 30 minutes
-Portions: 2
-Recipe: Cook pasta according to package instructions. In a separate pan, sauté garlic in olive oil. Add tomatoes and basil and cook until soft. Combine with pasta and serve.
+IsVegetarian: false
+Ingredients: potatoes, sheep cheese, flour, bacon
+TimeEstimation: 45 minutes
+Portions: 4
+Recipe: Peel and grate potatoes, mix with flour to form a dough. Cook halusky in boiling salted water until they float to the surface. Stir bryndza into the cooked halusky and serve topped with bacon.
 ---
 ---
 ID: 2
-Likes: 0
-Name: Omelette
+Likes: 7
+Name: Kapustnica
 IsGlutenFree: true
 IsVegetarian: false
-Ingredients: eggs, cheese, salt, pepper, ham, bell peppers
-TimeEstimation: 15 minutes
-Portions: 1
-Recipe: Beat the eggs with salt and pepper. Pour into a heated pan. Add ham, bell peppers, and cheese. Cook until the eggs are set. Fold and serve.
+Ingredients: sauerkraut, smoked meat, mushrooms, onion, garlic, paprika, bay leaf, marjoram
+TimeEstimation: 85 minutes
+Portions: 6
+Recipe: Sauté onion and garlic, add smoked meat and all spices. Add sauerkraut and water, cook until the meat is tender. Add soaked mushrooms and cook for another 30 minutes.
 ---
 ---
 ID: 3
-Likes: 0
-Name: Chicken Salad
-IsGlutenFree: true
-IsVegetarian: false
-Ingredients: chicken breast, mixed greens, cherry tomatoes, cucumber, olive oil, lemon juice, salt, pepper
-TimeEstimation: 20 minutes
-Portions: 2
-Recipe: Cook chicken breast and slice it. Combine mixed greens, cherry tomatoes, and cucumber in a bowl. Top with chicken slices. Dress with olive oil, lemon juice, salt, and pepper.
+Likes: 6
+Name: Lokse
+IsGlutenFree: false
+IsVegetarian: true
+Ingredients: potatoes, flour, salt, lard
+TimeEstimation: 60 minutes
+Portions: 4
+Recipe: Boil potatoes, mash them with flour and salt to make a dough. Roll out and cook the lokse on a dry skillet. Serve with lard or as a side dish.
 ---
 ---
 ID: 4
-Likes: 0
-Name: Grilled Cheese Sandwich
-IsGlutenFree: false
-IsVegetarian: true
-Ingredients: bread, butter, cheddar cheese
-TimeEstimation: 10 minutes
-Portions: 1
-Recipe: Butter one side of each bread slice. Place cheese between the unbuttered sides. Cook in a pan until bread is golden and cheese is melted.
+Likes: 4
+Name: Segedin Goulash
+IsGlutenFree: true
+IsVegetarian: false
+Ingredients: pork, sour cream, sauerkraut, onion, paprika, salt, marjoram
+TimeEstimation: 90 minutes
+Portions: 4
+Recipe: Sauté onion, add pork and paprika, fry briefly. Add sauerkraut and a bit of water, simmer. Before serving, stir in sour cream and marjoram.
 ---
 ---
 ID: 5
-Likes: 0
-Name: Vegetable Stir-Fry
-IsGlutenFree: true
+Likes: 7
+Name: Potato Pancakes
+IsGlutenFree: false
 IsVegetarian: true
-Ingredients: mixed vegetables (broccoli, bell peppers, carrots), soy sauce, garlic, ginger, olive oil
-TimeEstimation: 20 minutes
-Portions: 2
-Recipe: Sauté garlic and ginger in olive oil. Add mixed vegetables and stir-fry until tender-crisp. Add soy sauce and stir well.
----
----
-ID: 6
-Likes: 0
-Name: Banana Smoothie
-IsGlutenFree: true
-IsVegetarian: true
-Ingredients: banana, milk, honey, ice cubes
-TimeEstimation: 5 minutes
-Portions: 1
-Recipe: Blend banana, milk, honey, and ice cubes until smooth. Serve immediately.
----
----
-ID: 7
-Likes: 0
-Name: Garlic Shrimp
-IsGlutenFree: true
-IsVegetarian: false
-Ingredients: shrimp, garlic, butter, lemon juice, parsley, salt, pepper
-TimeEstimation: 15 minutes
-Portions: 2
-Recipe: Sauté garlic in butter. Add shrimp, cooking until pink. Season with lemon juice, parsley, salt, and pepper.
----
----
-ID: 8
-Likes: 0
-Name: Quinoa Salad
-IsGlutenFree: true
-IsVegetarian: true
-Ingredients: quinoa, cherry tomatoes, cucumber, feta cheese, olive oil, lemon juice, salt, pepper
+Ingredients: potatoes, flour, garlic, egg, salt, oil
 TimeEstimation: 30 minutes
-Portions: 2
-Recipe: Cook quinoa and let cool. Mix with cherry tomatoes, cucumber, and feta. Dress with olive oil, lemon juice, salt, and pepper.
----
----
-ID: 9
-Likes: 0
-Name: Pancakes
-IsGlutenFree: false
-IsVegetarian: true
-Ingredients: flour, milk, egg, sugar, baking powder, salt, butter
-TimeEstimation: 20 minutes
 Portions: 3
-Recipe: Mix flour, sugar, baking powder, and salt. Stir in milk, egg, and melted butter until smooth. Cook in a pan until golden.
----
----
-ID: 10
-Likes: 0
-Name: Avocado Toast
-IsGlutenFree: false
-IsVegetarian: true
-Ingredients: bread, avocado, salt, pepper, lemon juice
-TimeEstimation: 5 minutes
-Portions: 1
-Recipe: Toast bread. Mash avocado with lemon juice, salt, and pepper. Spread on toast.
----
----
-ID: 11
-Likes: 0
-Name: Lentil Soup
-IsGlutenFree: true
-IsVegetarian: true
-Ingredients: lentils, onion, carrot, celery, garlic, tomatoes, vegetable broth, olive oil, salt, pepper
-TimeEstimation: 45 minutes
-Portions: 4
-Recipe: Sauté onion, carrot, celery, and garlic in olive oil. Add lentils, tomatoes, and broth. Simmer until lentils are tender. Season with salt and pepper.
----
----
-ID: 12
-Likes: 0
-Name: Baked Salmon
-IsGlutenFree: true
-IsVegetarian: false
-Ingredients: salmon fillets, olive oil, lemon, garlic, salt, pepper, dill
-TimeEstimation: 25 minutes
-Portions: 2
-Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
----
----
-ID: 13
-Likes: 12
-Name: A
-IsGlutenFree: true
-IsVegetarian: false
-Ingredients: Apples
-TimeEstimation: 25 minutes
-Portions: 2
-Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through. Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through. Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
----
----
-ID: 14
-Likes: 0
-Name: TEST 0
-IsGlutenFree: false
-IsVegetarian: false
-Ingredients: apples, tvoja mama, rododendron
-TimeEstimation: 25 minutes
-Portions: 2
-Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
----
----
-ID: 15
-Likes: 0
-Name: B
-IsGlutenFree: false
-IsVegetarian: true
-Ingredients: apples, bread, Cheese
-TimeEstimation: 25 minutes
-Portions: 2
-Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
----
----
-ID: 16
-Likes: 0
-Name: CCCC
-IsGlutenFree: false
-IsVegetarian: true
-Ingredients: apples, bread, Cheese
-TimeEstimation: 25 minutes
-Portions: 2
-Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
----
----
-ID: 17
-Likes: 0
-Name: D
-IsGlutenFree: false
-IsVegetarian: true
-Ingredients: apples, bread, Cheese
-TimeEstimation: 25 minutes
-Portions: 2
-Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
----
----
-ID: 18
-Likes: 0
-Name: E
-IsGlutenFree: false
-IsVegetarian: true
-Ingredients: apples, bread, Cheese
-TimeEstimation: 25 minutes
-Portions: 2
-Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
----
----
-ID: 19
-Likes: 0
-Name: F
-IsGlutenFree: false
-IsVegetarian: true
-Ingredients: apples, bread, Cheese
-TimeEstimation: 25 minutes
-Portions: 2
-Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
----
----
-ID: 20
-Likes: 0
-Name: G
-IsGlutenFree: false
-IsVegetarian: true
-Ingredients: apples, bread, Cheese
-TimeEstimation: 25 minutes
-Portions: 2
-Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
----
----
-ID: 21
-Likes: 0
-Name: H
-IsGlutenFree: false
-IsVegetarian: true
-Ingredients: apples, bread, Cheese
-TimeEstimation: 25 minutes
-Portions: 2
-Recipe: Place salmon in a baking dish. Top with olive oil, lemon slices, garlic, salt, pepper, and dill. Bake until cooked through.
+Recipe:  Grate potatoes, mix with flour, beaten egg, crushed garlic, and salt. Form into pancakes and fry in oil until golden brown.
 ---

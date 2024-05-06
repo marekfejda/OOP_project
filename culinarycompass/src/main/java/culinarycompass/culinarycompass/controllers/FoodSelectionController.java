@@ -42,20 +42,13 @@ public class FoodSelectionController {
         messageLabel.setManaged(false);
         messageLabel.setVisible(false);
         masterList.addAll(
-                new Ingredient("Apples"), new Ingredient("Bread"), new Ingredient("Cheese"),
-                new Ingredient("Milk"), new Ingredient("Eggs"), new Ingredient("Tomatoes"),
-                new Ingredient("Potatoes"), new Ingredient("Carrots"), new Ingredient("Chicken"),
-                new Ingredient("Beef"), new Ingredient("Pasta"), new Ingredient("Rice"),
-                new Ingredient("Lettuce"), new Ingredient("Bananas"), new Ingredient("Oranges"),
-                new Ingredient("Yogurt"), new Ingredient("Butter"), new Ingredient("Flour"),
-                new Ingredient("Sugar"), new Ingredient("Salt"), new Ingredient("Pepper"),
-                new Ingredient("Garlic"), new Ingredient("Onions"), new Ingredient("Lemons"),
-                new Ingredient("Limes"), new Ingredient("Cucumbers"), new Ingredient("Bell Peppers"),
-                new Ingredient("Broccoli"), new Ingredient("Mushrooms"), new Ingredient("Spinach"),
-                new Ingredient("Grapes"), new Ingredient("Strawberries"), new Ingredient("Blueberries"),
-                new Ingredient("Almonds"), new Ingredient("Peanuts"), new Ingredient("Olive Oil"),
-                new Ingredient("Vinegar"), new Ingredient("Soy Sauce"), new Ingredient("Honey"),
-                new Ingredient("Maple Syrup")
+                new Ingredient("Potatoes"), new Ingredient("Sheep Cheese"), new Ingredient("Flour"), new Ingredient("Bacon"),
+                new Ingredient("Sauerkraut"), new Ingredient("Smoked Meat"), new Ingredient("Mushrooms"), new Ingredient("Onion"),
+                new Ingredient("Garlic"), new Ingredient("Paprika"), new Ingredient("Bay Leaf"), new Ingredient("Marjoram"),
+                new Ingredient("Lard"),
+                new Ingredient("Pork"), new Ingredient("Sour Cream"),
+                new Ingredient("Oil"), new Ingredient("Egg"),
+                new Ingredient("Salt"), new Ingredient("Pepper")
         );
 
         foodList.setItems(masterList);
