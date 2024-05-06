@@ -1,9 +1,12 @@
 package culinarycompass.culinarycompass.models;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Inventory {
+public class Inventory implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final Set<String> ingredients = new HashSet<>();
     private final Set<String> selectedIngredients = new HashSet<>();
 

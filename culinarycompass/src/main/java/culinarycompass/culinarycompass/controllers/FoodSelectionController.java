@@ -168,6 +168,8 @@ public class FoodSelectionController {
     protected void handleSignOut() {
         if (user != null) {
             user.saveSelectedIngredients(); // Save the selected ingredients
+            user.saveToFile(); // SERIALIZACIA
+            System.out.println("User data has been saved. Serialization");
         }
         try {
             // Load login screen
