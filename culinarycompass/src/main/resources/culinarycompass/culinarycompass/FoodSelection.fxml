@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 
+<?import javafx.scene.layout.Region?>
 <VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="culinarycompass.culinarycompass.controllers.FoodSelectionController">
     <TextField fx:id="searchField" promptText="Search..."/>
     <ListView fx:id="foodList"/>
     <Label fx:id="messageLabel"/>
-    <Button text="Confirm Selection" onAction="#handleConfirm"/>
-    <Button text="Sign Out" onAction="#handleSignOut" />
-    <Button text="Select All" onAction="#selectAllFoods" />
+    <HBox spacing="25.0" alignment="CENTER">
+        <Button text="Sign Out" onAction="#handleSignOut"/>
+        <Button text="Confirm Selection" onAction="#handleConfirm"/>
+        <Button text="Select All" onAction="#selectAllFoods"/>
+    </HBox>
+    <Region VBox.vgrow="ALWAYS"/>
 </VBox>
