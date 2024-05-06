@@ -53,7 +53,8 @@ public class User implements Serializable {
 
     // Method to save user's selected ingredients to a file (manual management)
     public void saveSelectedIngredients() {
-        try (PrintWriter out = new PrintWriter(new FileOutputStream("user_" + id + "_" + nickname + "_ingredients.txt"))) {
+        String fileName = new MergeToString<String>().concatenate("_", "user", id, nickname, "ingredients.txt");
+        try (PrintWriter out = new PrintWriter(new FileOutputStream(fileName))) {
             for (String ingredient : inventory.getSelectedIngredients()) {
                 out.println(ingredient);
             }
@@ -64,7 +65,8 @@ public class User implements Serializable {
 
     // Method to load user's selected ingredients from a file (manual management)
     public void loadSelectedIngredients() {
-        File file = new File("user_" + id + "_" + nickname + "_ingredients.txt");
+        String fileName = new MergeToString<String>().concatenate("_", "user", id, nickname, "ingredients.txt");
+        File file = new File(fileName);
         if (file.exists()) {
             try (Scanner scanner = new Scanner(file)) {
                 Set<String> loadedIngredients = new HashSet<>();
@@ -84,6 +86,18 @@ public class User implements Serializable {
         } catch (IOException e) {
             System.err.println("Error saving inventory data: " + e.getMessage());
             e.printStackTrace();
+        }
+    }
+    public static class MergeToString<T> {
+        public String concatenate(String splitChar, T... items) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < items.length; i++) {
+                sb.append(items[i].toString());
+                if (i < items.length - 1) {
+                    sb.append(splitChar);
+                }
+            }
+            return sb.toString();
         }
     }
 }
