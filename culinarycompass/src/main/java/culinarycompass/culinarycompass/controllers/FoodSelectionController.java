@@ -1,7 +1,6 @@
 package culinarycompass.culinarycompass.controllers;
 
 import culinarycompass.culinarycompass.models.Ingredient;
-import culinarycompass.culinarycompass.models.Inventory;
 import culinarycompass.culinarycompass.models.Recipe;
 import culinarycompass.culinarycompass.models.User;
 import javafx.collections.FXCollections;
@@ -34,7 +33,6 @@ public class FoodSelectionController {
     private ObservableList<Ingredient> masterList = FXCollections.observableArrayList();
     private List<Recipe> allRecipes;
     private User user;
-    private Inventory inventory = new Inventory();
 
 
     @FXML
@@ -75,8 +73,6 @@ public class FoodSelectionController {
             this.allRecipes = Recipe.loadRecipesFromFile("recipes.txt");
         } catch (IOException e) {
             e.printStackTrace();
-            // You could log this exception or provide some fallback behavior here
-            // For example, initializing allRecipes as an empty list to avoid NullPointerException
             this.allRecipes = new ArrayList<>();
         }
     }
@@ -84,12 +80,7 @@ public class FoodSelectionController {
 
     public void setUser(User user) {
         this.user = user;
-//        System.out.println("User set: " + user);
-
-        // Load the user's selected ingredients
         this.user.loadSelectedIngredients();
-
-        // Reapply ingredient selections now that user and their selections are guaranteed to be set
         reapplyIngredientSelections();
     }
 
@@ -97,12 +88,9 @@ public class FoodSelectionController {
     private void reapplyIngredientSelections() {
         if (user != null && user.getInventory() != null) {
             Set<String> selectedIngredientNames = user.getInventory().getSelectedIngredients();
-
             masterList.forEach(ingredient ->
                     ingredient.setSelected(selectedIngredientNames.contains(ingredient.getName()))
             );
-
-            // Refresh the ListView to update the UI
             foodList.refresh();
         }
     }
@@ -120,7 +108,6 @@ public class FoodSelectionController {
                 .collect(Collectors.toSet());
         user.updateInventory(selectedIngredients);
         user.getInventory().updateSelectedIngredients(selectedIngredients);
-        // Reintroduce the original recipe matching logic here
         List<Recipe> possibleRecipes = allRecipes.stream()
                 .filter(recipe -> user.getInventory().getIngredients().containsAll(
                         recipe.getIngredients().stream().map(String::toLowerCase).collect(Collectors.toSet())
@@ -144,7 +131,6 @@ public class FoodSelectionController {
                 stage.setHeight(340);
                 stage.show();
 
-                // Close the current window
                 Stage currentStage = (Stage) foodList.getScene().getWindow();
                 currentStage.close();
 
@@ -156,11 +142,10 @@ public class FoodSelectionController {
         }
     }
 
-
     @FXML
     protected void handleSignOut() {
         if (user != null) {
-            user.saveSelectedIngredients(); // Save the selected ingredients
+            user.saveSelectedIngredients();
             user.saveToFile(); // SERIALIZACIA
             System.out.println("User data has been saved. Serialization");
         }
@@ -173,7 +158,6 @@ public class FoodSelectionController {
             stage.setScene(new Scene(root, 700, 300));
             stage.show();
 
-            // Close the current window (the food selection screen)
             Stage currentStage = (Stage) foodList.getScene().getWindow();
             currentStage.close();
         } catch (IOException e) {
@@ -197,10 +181,7 @@ public class FoodSelectionController {
 
     @FXML
     protected void selectAllFoods() {
-        // Loop through the masterList and set all ingredients to selected
         masterList.forEach(ingredient -> ingredient.setSelected(true));
-
-        // Refresh the ListView to update the UI
         foodList.refresh();
         user.saveSelectedIngredients();
     }

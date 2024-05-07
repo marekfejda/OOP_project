@@ -14,10 +14,6 @@ public class Ingredient implements object2Str {
         this.name.set(name);
     }
 
-    public StringProperty nameProperty() {
-        return name;
-    }
-
     public BooleanProperty selectedProperty() {
         return selected;
     }

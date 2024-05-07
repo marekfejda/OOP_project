@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import javafx.scene.control.Label;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
@@ -24,8 +23,6 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
     private TextField nicknameField;
     @FXML
     private PasswordField passwordField;
-    @FXML
-    private Label messageLabel;
     private User authenticatedUser;
 
     private User authenticate(String nickname, String password) throws AuthenticationException {
@@ -47,17 +44,14 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
             setMessageTextColor(Color.GREEN);
             showMessage("You have successfully logged in!");
 
-            // Load the food selection screen
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/culinarycompass/culinarycompass/FoodSelection.fxml"));
             Parent root = loader.load();
             FoodSelectionController foodSelectionController = loader.getController();
             foodSelectionController.setUser(authenticatedUser);
 
-            // Get the instance of the main application to retrieve recipes
             main application = main.getInstance();
             foodSelectionController.setAllRecipes(application.getAllRecipes());
 
-            // After the user is authenticated
             authenticatedUser.loadSelectedIngredients();
 
             Stage stage = new Stage();
@@ -65,7 +59,6 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
             stage.setScene(new Scene(root, 700, 300));
             stage.show();
 
-            // Close the current window
             ((Stage) nicknameField.getScene().getWindow()).close();
         } catch (AuthenticationException e) {
             setMessageTextColor(Color.RED);

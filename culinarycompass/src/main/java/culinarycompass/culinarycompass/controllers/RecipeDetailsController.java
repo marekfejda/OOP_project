@@ -41,11 +41,11 @@ public class RecipeDetailsController {
     private ImageView likeIcon;
     private User currentUser;
     private Recipe currentRecipe;
-    private Set<Integer> likedRecipes = new HashSet<>(); // This stores the liked recipe IDs
+    private Set<Integer> likedRecipes = new HashSet<>();
 
     public void setUser(User user) {
         this.currentUser = user;
-        loadLikes();  // Load likes when setting the user
+        loadLikes();
     }
     public void setRecipe(Recipe recipe) {
         this.currentRecipe = recipe;
@@ -57,14 +57,9 @@ public class RecipeDetailsController {
         recipeTextLabel.setWrapText(true);
         recipeTextLabel.setMaxWidth(420);
         recipeTextLabel.setText("Recipe: " + recipe.getRecipeText());
-//        likesLabel.setText("Likes: " + recipe.getLikes());
         likesLabel.setText(String.valueOf(currentRecipe.getLikes()));
-
         configureBadges(recipe);
         loadImage(recipe.getId());
-
-        // Ensure the like icon is updated every time the recipe is set
-
     }
 
     private void updateLikeIcon() {
@@ -92,17 +87,6 @@ public class RecipeDetailsController {
     private void updateLikesDisplay() {
         likesLabel.setText(String.valueOf(currentRecipe.getLikes()));
     }
-
-    private void saveLikes() {
-        try (PrintWriter out = new PrintWriter(new File("user_likes_" + currentUser.getId() + ".txt"))) {
-            for (Integer id : likedRecipes) {
-                out.println(id);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     private void configureBadges(Recipe recipe) {
         int badge_size_px = 50;
@@ -143,7 +127,7 @@ public class RecipeDetailsController {
 
     private void loadLikes() {
         File file = new File("user_likes_" + currentUser.getId() + ".txt");
-        likedRecipes.clear(); // Clear the current set of liked recipes
+        likedRecipes.clear();
         if (file.exists()) {
             try (Scanner scanner = new Scanner(file)) {
                 while (scanner.hasNextInt()) {
@@ -158,7 +142,6 @@ public class RecipeDetailsController {
 
     @FXML
     protected void handleBack() {
-        // Close the recipe details stage
         nameLabel.getScene().getWindow().hide();
     }
 }

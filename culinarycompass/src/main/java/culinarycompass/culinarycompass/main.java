@@ -12,19 +12,18 @@ import java.util.List;
 
 public class main extends Application {
 
-    private static main instance; // New line for Singleton pattern
+    private static main instance;
 
     private List<Recipe> allRecipes;
 
     @Override
     public void start(Stage primaryStage) {
-        instance = this; // Assign the instance for Singleton pattern
+        instance = this;
 
         try {
             allRecipes = Recipe.loadRecipesFromFile("recipes.txt");
         } catch (IOException e) {
             e.printStackTrace();
-            // Handle the error properly, perhaps show an alert to the user
         }
 
         try {
@@ -35,7 +34,6 @@ public class main extends Application {
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
-            // Handle this error properly as well
         }
     }
 
@@ -43,12 +41,11 @@ public class main extends Application {
         launch(args);
     }
 
-    // New method for Singleton pattern
+
     public static main getInstance() {
         return instance;
     }
 
-    // New getter method for allRecipes
     public List<Recipe> getAllRecipes() {
         return allRecipes;
     }

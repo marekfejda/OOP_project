@@ -4,9 +4,7 @@ import java.io.Serializable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileInputStream;
 import java.io.ObjectOutputStream;
-import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashSet;
@@ -42,16 +40,11 @@ public class User implements Serializable {
         return inventory;
     }
 
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
-    }
-
     public void updateInventory(Set<String> ingredientNames) {
         inventory.clearInventory();
         ingredientNames.forEach(inventory::addIngredient);
     }
 
-    // Method to save user's selected ingredients to a file (manual management)
     public void saveSelectedIngredients() {
         String fileName = new MergeToString<String>().concatenate("_", "user", id, nickname, "ingredients.txt");
         try (PrintWriter out = new PrintWriter(new FileOutputStream(fileName))) {
@@ -63,7 +56,6 @@ public class User implements Serializable {
         }
     }
 
-    // Method to load user's selected ingredients from a file (manual management)
     public void loadSelectedIngredients() {
         String fileName = new MergeToString<String>().concatenate("_", "user", id, nickname, "ingredients.txt");
         File file = new File(fileName);

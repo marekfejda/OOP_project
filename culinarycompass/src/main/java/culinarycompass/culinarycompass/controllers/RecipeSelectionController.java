@@ -34,33 +34,28 @@ public class RecipeSelectionController {
     public void setRecipes(List<Recipe> recipes) {
         recipesBox.getChildren().clear();
         for (Recipe recipe : recipes) {
-            HBox recipeItem = new HBox(10); // Creates an HBox with spacing of 10
-            recipeItem.setPadding(new Insets(5, 0, 5, 0)); // Optional padding
+            HBox recipeItem = new HBox(10);
+            recipeItem.setPadding(new Insets(5, 0, 5, 0));
 
-            // Create an ImageView for the recipe image
             ImageView imageView = new ImageView();
-            imageView.setFitWidth(100); // Set the width of the image
-            imageView.setFitHeight(60); // Set the height of the image
+            imageView.setFitWidth(100);
+            imageView.setFitHeight(60);
             imageView.setPreserveRatio(true);
 
-            loadImage(imageView, recipe.getId()); // Load image based on recipe ID
+            loadImage(imageView, recipe.getId());
 
-            // Create a Button for the recipe name
             Button recipeButton = new Button(recipe.getName());
             recipeButton.setOnAction(event -> showRecipeDetails(recipe));
-            recipeButton.setMinWidth(560); // Adjust width to accommodate the image
+            recipeButton.setMinWidth(560);
             recipeButton.setMinHeight(60);
 
-            // Add ImageView and Button to HBox
             recipeItem.getChildren().addAll(imageView, recipeButton);
             recipesBox.getChildren().add(recipeItem);
         }
     }
 
-    // Method to set the user in the RecipeSelectionController
     public void setUser(User user) {
         this.user = user;
-//        System.out.println("User set: " + user);
     }
 
     @FXML
@@ -109,13 +104,12 @@ public class RecipeSelectionController {
     @FXML
     protected void handleSignOut() {
         if (user != null) {
-            user.saveSelectedIngredients(); // Save the selected ingredients
+            user.saveSelectedIngredients();
             user.saveToFile(); // SERIALIZACIA
             System.out.println("User data has been saved. Serialization");
         }
 
         try {
-            // Load login screen
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/culinarycompass/culinarycompass/loginScreen.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
@@ -123,7 +117,6 @@ public class RecipeSelectionController {
             stage.setScene(new Scene(root, 700, 300));
             stage.show();
 
-            // Close the current window (the recipe selection screen)
             Stage currentStage = (Stage) backButton.getScene().getWindow();
             currentStage.close();
         } catch (IOException e) {
@@ -138,7 +131,7 @@ public class RecipeSelectionController {
             imageView.setImage(image);
         } catch (NullPointerException e) {
             System.out.println("Image not found: jedlo" + recipeId + ".jpg");
-            imageView.setImage(null); // Clear the image view if the image does not exist
+            imageView.setImage(null);
         }
     }
 }

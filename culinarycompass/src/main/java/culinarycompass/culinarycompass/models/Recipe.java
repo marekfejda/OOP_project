@@ -20,13 +20,10 @@ public class Recipe implements Likeable, object2Str {
     private boolean isVegetarian;
     private int likes;
 
-    // Constructors
     public Recipe() {
-        // Default constructor
         this.ingredients = new ArrayList<>();
     }
 
-    // Setters
     public void setId(int id) {
         this.id = id;
     }
@@ -51,7 +48,6 @@ public class Recipe implements Likeable, object2Str {
         this.recipeText = recipeText;
     }
 
-    // Getters
     public int getId() {
         return id;
     }
@@ -92,7 +88,6 @@ public class Recipe implements Likeable, object2Str {
         isVegetarian = vegetarian;
     }
 
-    // Getters and Setters
     public int getLikes() {
         return likes;
     }
@@ -108,7 +103,7 @@ public class Recipe implements Likeable, object2Str {
 
     @Override
     public void decrementLikes() {
-        if (this.likes > 0) { // Prevent likes from going negative
+        if (this.likes > 0) {
             this.likes--;
         }
     }
@@ -118,11 +113,9 @@ public class Recipe implements Likeable, object2Str {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-//                System.out.println("Reading line: " + line); // Debug print
                 if ("---".equals(line.trim())) {
                     Recipe recipe = new Recipe();
                     while ((line = reader.readLine()) != null) {
-//                        System.out.println("Processing line: " + line); // Debug print
                         if (line.startsWith("ID:")) {
                             recipe.setId(Integer.parseInt(line.substring(4).trim()));
                         } else if (line.startsWith("Likes:")) {
@@ -145,11 +138,10 @@ public class Recipe implements Likeable, object2Str {
                                 recipeTextBuilder.append(System.lineSeparator()).append(line);
                             }
                             recipe.setRecipeText(recipeTextBuilder.toString());
-                            break; // End reading the current recipe section
+                            break;
                         }
                     }
                     recipes.add(recipe);
-//                    System.out.println("Added recipe: " + recipe.getName()); // Debug print
                 }
             }
         }
@@ -173,42 +165,5 @@ public class Recipe implements Likeable, object2Str {
     @Override
     public String toString() {
         return object2Str();
-    }
-
-    public static List<Recipe> loadAllRecipes() {
-        List<Recipe> recipes = new ArrayList<>();
-        File file = new File("recipes.txt"); // Assuming a file named recipes.txt
-
-        try (Scanner scanner = new Scanner(file)) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                // Parse the line to create a Recipe object
-                // This is highly dependent on how your data is formatted
-                Recipe recipe = parseRecipeLine(line);
-                recipes.add(recipe);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return recipes;
-    }
-
-    private static Recipe parseRecipeLine(String line) {
-        // Implement parsing logic based on your file format
-        // This is just a placeholder
-        Recipe recipe = new Recipe();
-        // Set recipe properties based on the line content
-        return recipe;
-    }
-
-    // Main method just for testing purpose
-    public static void main(String[] args) {
-        try {
-            List<Recipe> recipes = Recipe.loadRecipesFromFile("src/recipes.txt");
-            recipes.forEach(System.out::println);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
