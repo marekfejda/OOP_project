@@ -1,7 +1,9 @@
 package culinarycompass.culinarycompass.controllers;
 
+import culinarycompass.culinarycompass.interfaces.Command;
 import culinarycompass.culinarycompass.models.Ingredient;
 import culinarycompass.culinarycompass.models.Recipe;
+import culinarycompass.culinarycompass.models.SelectAllFoodsCommand;
 import culinarycompass.culinarycompass.models.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,7 +35,6 @@ public class FoodSelectionController {
     private ObservableList<Ingredient> masterList = FXCollections.observableArrayList();
     private List<Recipe> allRecipes;
     private User user;
-
 
     @FXML
     protected void initialize() {
@@ -77,12 +78,11 @@ public class FoodSelectionController {
         }
     }
 
-
     public void setUser(User user) {
         this.user = user;
         this.user.loadSelectedIngredients();
         reapplyIngredientSelections();
-        
+
         if (user instanceof User) { //RTTI - Run Time Type Identification na kontrolu typu objektu
             System.out.println("RTTI: Logged in as: " + user.getNickname());
         }
@@ -97,7 +97,6 @@ public class FoodSelectionController {
             foodList.refresh();
         }
     }
-
 
     public void setAllRecipes(List<Recipe> recipes) {
         this.allRecipes = recipes;
@@ -169,7 +168,6 @@ public class FoodSelectionController {
         }
     }
 
-
     private void showMessage(String message) {
         if (message == null || message.isEmpty()) {
             messageLabel.setText("");
@@ -184,8 +182,7 @@ public class FoodSelectionController {
 
     @FXML
     protected void selectAllFoods() {
-        masterList.forEach(ingredient -> ingredient.setSelected(true));
-        foodList.refresh();
-        user.saveSelectedIngredients();
+        Command selectAllFoodsCommand = new SelectAllFoodsCommand(masterList, foodList, user);
+        selectAllFoodsCommand.execute();
     }
 }
