@@ -82,8 +82,11 @@ public class FoodSelectionController {
         this.user = user;
         this.user.loadSelectedIngredients();
         reapplyIngredientSelections();
+        
+        if (user instanceof User) { //RTTI - Run Time Type Identification na kontrolu typu objektu
+            System.out.println("RTTI: Logged in as: " + user.getNickname());
+        }
     }
-
 
     private void reapplyIngredientSelections() {
         if (user != null && user.getInventory() != null) {
