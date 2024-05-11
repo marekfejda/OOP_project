@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.*;
 
-public class RecipeDetailsController {
+public class RecipeDetailsController extends BadgeController {
     @FXML
     private AnchorPane rootAnchorPane;
     @FXML
@@ -89,34 +89,7 @@ public class RecipeDetailsController {
     }
 
     private void configureBadges(Recipe recipe) {
-        int badge_size_px = 50;
-        glutenFreeBadge.setFitWidth(badge_size_px);
-        glutenFreeBadge.setPreserveRatio(true);
-        notGlutenFreeBadge.setFitWidth(badge_size_px);
-        notGlutenFreeBadge.setPreserveRatio(true);
-        veganBadge.setFitWidth(badge_size_px);
-        veganBadge.setPreserveRatio(true);
-        notVeganBadge.setFitWidth(badge_size_px);
-        notVeganBadge.setPreserveRatio(true);
-
-        if (recipe.isGlutenFree()) {
-            glutenFreeBadge.setImage(new Image(getClass().getResourceAsStream("/culinarycompass/culinarycompass/badges/gluten-free.png")));
-            glutenFreeBadge.setVisible(true);
-            notGlutenFreeBadge.setVisible(false);
-        } else {
-            notGlutenFreeBadge.setImage(new Image(getClass().getResourceAsStream("/culinarycompass/culinarycompass/badges/gluten-free-NOT.png")));
-            notGlutenFreeBadge.setVisible(true);
-            glutenFreeBadge.setVisible(false);
-        }
-        if (recipe.isVegetarian()) {
-            veganBadge.setImage(new Image(getClass().getResourceAsStream("/culinarycompass/culinarycompass/badges/vegan.png")));
-            veganBadge.setVisible(true);
-            notVeganBadge.setVisible(false);
-        } else {
-            notVeganBadge.setImage(new Image(getClass().getResourceAsStream("/culinarycompass/culinarycompass/badges/vegan-NOT.png")));
-            notVeganBadge.setVisible(true);
-            veganBadge.setVisible(false);
-        }
+        super.configureBadges(recipe, glutenFreeBadge, notGlutenFreeBadge, veganBadge, notVeganBadge);
     }
 
     private void loadImage(int recipeId) {
