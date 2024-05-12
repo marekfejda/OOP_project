@@ -4,9 +4,22 @@ import culinarycompass.culinarycompass.models.Recipe;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 
+/**
+ * Abstraktná trieda poskytujúca funkcionalitu pre zobrazenie odznakov
+ * (napr. bezlepkové, vegánske) pre jednotlivé recepty.
+ */
 public abstract class BadgeController {
     private static final int BADGE_SIZE_PX = 50;
 
+    /**
+     * Konfiguruje zobrazenie odznakov na základe špecifikácií receptu.
+     *
+     * @param recipe             Recept, pre ktorý sa majú zobraziť odznaky.
+     * @param glutenFreeBadge    Obrazok pre bezlepkový odznak.
+     * @param notGlutenFreeBadge Obrazok pre nebezlepkový odznak.
+     * @param veganBadge         Obrazok pre vegánsky odznak.
+     * @param notVeganBadge      Obrazok pre nevegánsky odznak.
+     */
     protected void configureBadges(Recipe recipe, ImageView glutenFreeBadge, ImageView notGlutenFreeBadge,
                                    ImageView veganBadge, ImageView notVeganBadge) {
         setBadgeSize(glutenFreeBadge, notGlutenFreeBadge, veganBadge, notVeganBadge);
@@ -36,6 +49,11 @@ public abstract class BadgeController {
         }
     }
 
+    /**
+     * Nastaví veľkosť odznakov na konštantnú hodnotu.
+     *
+     * @param badges Pole obsahujúce všetky odznaky, ktorým treba nastaviť veľkosť.
+     */
     private void setBadgeSize(ImageView... badges) {
         for (ImageView badge : badges) {
             badge.setFitWidth(BADGE_SIZE_PX);

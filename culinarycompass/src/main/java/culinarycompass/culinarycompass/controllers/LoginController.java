@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
+/**
+ * Kontrolér spravujúci prihlasovanie a registráciu užívateľov.
+ */
 public class LoginController extends culinarycompass.culinarycompass.controllers.BaseController {
 
     @FXML
@@ -25,6 +28,14 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
     private PasswordField passwordField;
     private User authenticatedUser;
 
+    /**
+     * Overuje užívateľské meno a heslo a vracia autentifikovaného užívateľa.
+     *
+     * @param nickname Užívateľské meno.
+     * @param password Heslo.
+     * @return Autentifikovaný užívateľ.
+     * @throws AuthenticationException Výnimka, ktorá sa vyvolá, ak je užívateľské meno alebo heslo nesprávne.
+     */
     private User authenticate(String nickname, String password) throws AuthenticationException {
         List<User> users = loadUsers();
         return users.stream()
@@ -33,7 +44,9 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
                 .orElseThrow(() -> new AuthenticationException("Incorrect nickname or password."));
     }
 
-
+    /**
+     * Spracúva prihlásenie užívateľa.
+     */
     @FXML
     protected void handleLogin() {
         String nickname = nicknameField.getText();
@@ -70,6 +83,9 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
         }
     }
 
+    /**
+     * Spracúva registráciu nového užívateľa.
+     */
     @FXML
     protected void handleRegister() {
         String nickname = nicknameField.getText();
@@ -93,11 +109,24 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
         }
     }
 
+    /**
+     * Kontroluje, či už existuje užívateľ so zadaným užívateľským menom.
+     *
+     * @param nickname Užívateľské meno.
+     * @return {@code true}, ak už existuje.
+     */
     private boolean userExists(String nickname) {
         List<User> users = loadUsers();
         return users.stream().anyMatch(u -> u.getNickname().equalsIgnoreCase(nickname));
     }
 
+    /**
+     * Registruje nového užívateľa s daným menom a heslom.
+     *
+     * @param nickname Užívateľské meno.
+     * @param password Heslo.
+     * @return {@code true}, ak sa užívateľ úspešne zaregistruje.
+     */
     private boolean registerNewUser(String nickname, String password) {
         try (FileWriter fw = new FileWriter("credentials.txt", true);
              BufferedWriter bw = new BufferedWriter(fw);
@@ -111,6 +140,11 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
         }
     }
 
+    /**
+     * Načíta užívateľov zo súboru a vracia ich zoznam.
+     *
+     * @return Zoznam užívateľov.
+     */
     private List<User> loadUsers() {
         List<User> users = new ArrayList<>();
         try (Scanner scanner = new Scanner(new File("credentials.txt"))) {
@@ -129,6 +163,11 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
         return users;
     }
 
+    /**
+     * Generuje nové ID pre užívateľa.
+     *
+     * @return Nové užívateľské ID.
+     */
     private int generateNewUserId() {
         Optional<User> maxIdUser = loadUsers().stream()
                 .max((u1, u2) -> Integer.compare(Integer.parseInt(u1.getId()), Integer.parseInt(u2.getId())));

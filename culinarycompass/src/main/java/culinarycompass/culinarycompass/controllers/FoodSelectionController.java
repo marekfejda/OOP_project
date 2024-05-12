@@ -23,6 +23,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Kontrolér spravujúci výber potravín užívateľom.
+ */
 public class FoodSelectionController {
 
     @FXML
@@ -36,6 +39,9 @@ public class FoodSelectionController {
     private List<Recipe> allRecipes;
     private User user;
 
+    /**
+     * Inicializuje kontrolér, napĺňa zoznam potravín a nastavuje listener na vyhľadávacie pole.
+     */
     @FXML
     protected void initialize() {
         messageLabel.setManaged(false);
@@ -69,6 +75,9 @@ public class FoodSelectionController {
         populateAllRecipes();
     }
 
+    /**
+     * Načítava všetky recepty zo súboru.
+     */
     private void populateAllRecipes() {
         try {
             this.allRecipes = Recipe.loadRecipesFromFile("recipes.txt");
@@ -78,6 +87,11 @@ public class FoodSelectionController {
         }
     }
 
+    /**
+     * Nastavuje aktuálneho užívateľa a opätovne aplikuje výbery ingrediencií.
+     *
+     * @param user Užívateľ, ktorý je prihlásený.
+     */
     public void setUser(User user) {
         this.user = user;
         this.user.loadSelectedIngredients();
@@ -88,6 +102,9 @@ public class FoodSelectionController {
         }
     }
 
+    /**
+     * Opätovne aplikuje výbery ingrediencií z inventára užívateľa.
+     */
     private void reapplyIngredientSelections() {
         if (user != null && user.getInventory() != null) {
             Set<String> selectedIngredientNames = user.getInventory().getSelectedIngredients();
@@ -98,10 +115,18 @@ public class FoodSelectionController {
         }
     }
 
+    /**
+     * Nastavuje všetky recepty.
+     *
+     * @param recipes Zoznam receptov.
+     */
     public void setAllRecipes(List<Recipe> recipes) {
         this.allRecipes = recipes;
     }
 
+    /**
+     * Potvrdzuje výber ingrediencií, aktualizuje inventár užívateľa a načítava možné recepty.
+     */
     @FXML
     protected void handleConfirm() {
         Set<String> selectedIngredients = masterList.stream()
@@ -144,6 +169,9 @@ public class FoodSelectionController {
         }
     }
 
+    /**
+     * Odhlasuje užívateľa a načítava prihlasovaciu obrazovku.
+     */
     @FXML
     protected void handleSignOut() {
         if (user != null) {
@@ -168,6 +196,11 @@ public class FoodSelectionController {
         }
     }
 
+    /**
+     * Zobrazuje správu.
+     *
+     * @param message Text správy.
+     */
     private void showMessage(String message) {
         if (message == null || message.isEmpty()) {
             messageLabel.setText("");
@@ -180,6 +213,9 @@ public class FoodSelectionController {
         }
     }
 
+    /**
+     * Označuje všetky potraviny ako vybrané.
+     */
     @FXML
     protected void selectAllFoods() {
         Command selectAllFoodsCommand = new SelectAllFoodsCommand(masterList, foodList, user);

@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Kontrolér pre výber a zobrazenie zoznamu receptov.
+ */
 public class RecipeSelectionController {
 
     @FXML
@@ -26,11 +29,19 @@ public class RecipeSelectionController {
     private Button backButton;
     private User user;
 
+    /**
+     * Inicializuje ovládacie prvky na obrazovke výberu receptov.
+     */
     @FXML
     public void initialize() {
         recipesBox.setPadding(new Insets(10, 10, 10, 10));
     }
 
+    /**
+     * Nastaví zoznam receptov na zobrazenie.
+     *
+     * @param recipes Zoznam receptov.
+     */
     public void setRecipes(List<Recipe> recipes) {
         recipesBox.getChildren().clear();
         for (Recipe recipe : recipes) {
@@ -54,10 +65,18 @@ public class RecipeSelectionController {
         }
     }
 
+    /**
+     * Nastaví aktuálneho používateľa.
+     *
+     * @param user Aktuálny používateľ.
+     */
     public void setUser(User user) {
         this.user = user;
     }
 
+    /**
+     * Vráti sa späť na obrazovku výberu potravín.
+     */
     @FXML
     protected void handleBack() {
         try {
@@ -81,6 +100,11 @@ public class RecipeSelectionController {
         }
     }
 
+    /**
+     * Zobrazí detaily vybraného receptu.
+     *
+     * @param recipe Recept, ktorý sa má zobraziť.
+     */
     private void showRecipeDetails(Recipe recipe) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/culinarycompass/culinarycompass/RecipeDetails.fxml"));
@@ -101,6 +125,9 @@ public class RecipeSelectionController {
         }
     }
 
+    /**
+     * Spracováva odhlásenie používateľa.
+     */
     @FXML
     protected void handleSignOut() {
         if (user != null) {
@@ -124,6 +151,12 @@ public class RecipeSelectionController {
         }
     }
 
+    /**
+     * Načíta obrázok receptu do zadaného ImageView podľa ID receptu.
+     *
+     * @param imageView Komponent na zobrazenie obrázka.
+     * @param recipeId  ID receptu.
+     */
     private void loadImage(ImageView imageView, int recipeId) {
         String imagePath = "/culinarycompass/culinarycompass/FoodPictures/jedlo" + recipeId + ".jpg";
         try {
