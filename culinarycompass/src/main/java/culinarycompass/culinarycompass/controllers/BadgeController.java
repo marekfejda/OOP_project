@@ -5,20 +5,20 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 
 /**
- * Abstraktná trieda poskytujúca funkcionalitu pre zobrazenie odznakov
- * (napr. bezlepkové, vegánske) pre jednotlivé recepty.
+ * Abstraktna trieda poskytujuca funkcionalitu pre zobrazenie odznakov
+ * (napr. bezlepkove, veganske) pre jednotlive recepty.
  */
 public abstract class BadgeController {
     private static final int BADGE_SIZE_PX = 50;
 
     /**
-     * Konfiguruje zobrazenie odznakov na základe špecifikácií receptu.
+     * Konfiguruje zobrazenie odznakov na zaklade specifikacii receptu.
      *
-     * @param recipe             Recept, pre ktorý sa majú zobraziť odznaky.
-     * @param glutenFreeBadge    Obrazok pre bezlepkový odznak.
-     * @param notGlutenFreeBadge Obrazok pre nebezlepkový odznak.
-     * @param veganBadge         Obrazok pre vegánsky odznak.
-     * @param notVeganBadge      Obrazok pre nevegánsky odznak.
+     * @param recipe             Recept, pre ktory sa maju zobrazit odznaky.
+     * @param glutenFreeBadge    Obrazok pre bezlepkovy odznak.
+     * @param notGlutenFreeBadge Obrazok pre nebezlepkovy odznak.
+     * @param veganBadge         Obrazok pre vegansky odznak.
+     * @param notVeganBadge      Obrazok pre nevegansky odznak.
      */
     protected void configureBadges(Recipe recipe, ImageView glutenFreeBadge, ImageView notGlutenFreeBadge,
                                    ImageView veganBadge, ImageView notVeganBadge) {
@@ -50,9 +50,9 @@ public abstract class BadgeController {
     }
 
     /**
-     * Nastaví veľkosť odznakov na konštantnú hodnotu.
+     * Nastavi velkost odznakov na konstantnu hodnotu.
      *
-     * @param badges Pole obsahujúce všetky odznaky, ktorým treba nastaviť veľkosť.
+     * @param badges Pole obsahujuce vsetky odznaky, ktorym treba nastavit velkost.
      */
     private void setBadgeSize(ImageView... badges) {
         for (ImageView badge : badges) {

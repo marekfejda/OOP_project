@@ -18,7 +18,7 @@ import java.util.Optional;
 import java.util.Scanner;
 
 /**
- * Kontrolér spravujúci prihlasovanie a registráciu užívateľov.
+ * Kontroler spravujuci prihlasovanie a registraciu uzivatelov.
  */
 public class LoginController extends culinarycompass.culinarycompass.controllers.BaseController {
 
@@ -29,12 +29,12 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
     private User authenticatedUser;
 
     /**
-     * Overuje užívateľské meno a heslo a vracia autentifikovaného užívateľa.
+     * Overuje uzivatelske meno a heslo a vracia autentifikovaneho uzivatela.
      *
-     * @param nickname Užívateľské meno.
+     * @param nickname Uzivatelske meno.
      * @param password Heslo.
-     * @return Autentifikovaný užívateľ.
-     * @throws AuthenticationException Výnimka, ktorá sa vyvolá, ak je užívateľské meno alebo heslo nesprávne.
+     * @return Autentifikovany uzivatel.
+     * @throws AuthenticationException Vynimka, ktora sa vyvola, ak je uzivatelske meno alebo heslo nespravne.
      */
     private User authenticate(String nickname, String password) throws AuthenticationException {
         List<User> users = loadUsers();
@@ -45,7 +45,7 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
     }
 
     /**
-     * Spracúva prihlásenie užívateľa.
+     * Spracuva prihlasenie uzivatela.
      */
     @FXML
     protected void handleLogin() {
@@ -84,7 +84,7 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
     }
 
     /**
-     * Spracúva registráciu nového užívateľa.
+     * Spracuva registraciu noveho uzivatela.
      */
     @FXML
     protected void handleRegister() {
@@ -110,10 +110,10 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
     }
 
     /**
-     * Kontroluje, či už existuje užívateľ so zadaným užívateľským menom.
+     * Kontroluje, ci uz existuje uzivatel so zadanym uzivatelskym menom.
      *
-     * @param nickname Užívateľské meno.
-     * @return {@code true}, ak už existuje.
+     * @param nickname Uzivatelske meno.
+     * @return {@code true}, ak uz existuje.
      */
     private boolean userExists(String nickname) {
         List<User> users = loadUsers();
@@ -121,11 +121,11 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
     }
 
     /**
-     * Registruje nového užívateľa s daným menom a heslom.
+     * Registruje noveho uzivatela s danym menom a heslom.
      *
-     * @param nickname Užívateľské meno.
+     * @param nickname Uzivatelske meno.
      * @param password Heslo.
-     * @return {@code true}, ak sa užívateľ úspešne zaregistruje.
+     * @return {@code true}, ak sa uzivatel uspesne zaregistruje.
      */
     private boolean registerNewUser(String nickname, String password) {
         try (FileWriter fw = new FileWriter("credentials.txt", true);
@@ -141,9 +141,9 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
     }
 
     /**
-     * Načíta užívateľov zo súboru a vracia ich zoznam.
+     * Nacita uzivatelov zo suboru a vracia ich zoznam.
      *
-     * @return Zoznam užívateľov.
+     * @return Zoznam uzivatelov.
      */
     private List<User> loadUsers() {
         List<User> users = new ArrayList<>();
@@ -164,9 +164,9 @@ public class LoginController extends culinarycompass.culinarycompass.controllers
     }
 
     /**
-     * Generuje nové ID pre užívateľa.
+     * Generuje nove ID pre uzivatela.
      *
-     * @return Nové užívateľské ID.
+     * @return Nove uzivatelske ID.
      */
     private int generateNewUserId() {
         Optional<User> maxIdUser = loadUsers().stream()

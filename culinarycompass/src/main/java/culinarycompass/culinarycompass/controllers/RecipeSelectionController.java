@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Kontrolér pre výber a zobrazenie zoznamu receptov.
+ * Kontroler pre vyber a zobrazenie zoznamu receptov.
  */
 public class RecipeSelectionController {
 
@@ -30,7 +30,7 @@ public class RecipeSelectionController {
     private User user;
 
     /**
-     * Inicializuje ovládacie prvky na obrazovke výberu receptov.
+     * Inicializuje ovladacie prvky na obrazovke vyberu receptov.
      */
     @FXML
     public void initialize() {
@@ -38,7 +38,7 @@ public class RecipeSelectionController {
     }
 
     /**
-     * Nastaví zoznam receptov na zobrazenie.
+     * Nastavi zoznam receptov na zobrazenie.
      *
      * @param recipes Zoznam receptov.
      */
@@ -66,16 +66,16 @@ public class RecipeSelectionController {
     }
 
     /**
-     * Nastaví aktuálneho používateľa.
+     * Nastavi aktualneho pouzivatela.
      *
-     * @param user Aktuálny používateľ.
+     * @param user Aktualny pouzivatel.
      */
     public void setUser(User user) {
         this.user = user;
     }
 
     /**
-     * Vráti sa späť na obrazovku výberu potravín.
+     * Vrati sa spat na obrazovku vyberu potravin.
      */
     @FXML
     protected void handleBack() {
@@ -101,9 +101,9 @@ public class RecipeSelectionController {
     }
 
     /**
-     * Zobrazí detaily vybraného receptu.
+     * Zobrazi detaily vybraneho receptu.
      *
-     * @param recipe Recept, ktorý sa má zobraziť.
+     * @param recipe Recept, ktory sa ma zobrazit.
      */
     private void showRecipeDetails(Recipe recipe) {
         try {
@@ -126,7 +126,7 @@ public class RecipeSelectionController {
     }
 
     /**
-     * Spracováva odhlásenie používateľa.
+     * Spracovava odhlasenie pouzivatela.
      */
     @FXML
     protected void handleSignOut() {
@@ -152,9 +152,9 @@ public class RecipeSelectionController {
     }
 
     /**
-     * Načíta obrázok receptu do zadaného ImageView podľa ID receptu.
+     * Nacita obrazok receptu do zadaneho ImageView podla ID receptu.
      *
-     * @param imageView Komponent na zobrazenie obrázka.
+     * @param imageView Komponent na zobrazenie obrazka.
      * @param recipeId  ID receptu.
      */
     private void loadImage(ImageView imageView, int recipeId) {

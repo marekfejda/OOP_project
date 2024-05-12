@@ -24,7 +24,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * Kontrolér spravujúci výber potravín užívateľom.
+ * Kontroler spravujuci vyber potravin uzivatelom.
  */
 public class FoodSelectionController {
 
@@ -40,7 +40,7 @@ public class FoodSelectionController {
     private User user;
 
     /**
-     * Inicializuje kontrolér, napĺňa zoznam potravín a nastavuje listener na vyhľadávacie pole.
+     * Inicializuje kontroler, naplna zoznam potravin a nastavuje listener na vyhladavacie pole.
      */
     @FXML
     protected void initialize() {
@@ -76,7 +76,7 @@ public class FoodSelectionController {
     }
 
     /**
-     * Načítava všetky recepty zo súboru.
+     * Nacitava vsetky recepty zo suboru.
      */
     private void populateAllRecipes() {
         try {
@@ -88,9 +88,9 @@ public class FoodSelectionController {
     }
 
     /**
-     * Nastavuje aktuálneho užívateľa a opätovne aplikuje výbery ingrediencií.
+     * Nastavuje aktualneho uzivatela a opatovne aplikuje vybery ingrediencii.
      *
-     * @param user Užívateľ, ktorý je prihlásený.
+     * @param user Uzivatel, ktory je prihlaseny.
      */
     public void setUser(User user) {
         this.user = user;
@@ -103,7 +103,7 @@ public class FoodSelectionController {
     }
 
     /**
-     * Opätovne aplikuje výbery ingrediencií z inventára užívateľa.
+     * Opatovne aplikuje vybery ingrediencii z inventara uzivatela.
      */
     private void reapplyIngredientSelections() {
         if (user != null && user.getInventory() != null) {
@@ -116,7 +116,7 @@ public class FoodSelectionController {
     }
 
     /**
-     * Nastavuje všetky recepty.
+     * Nastavuje vsetky recepty.
      *
      * @param recipes Zoznam receptov.
      */
@@ -125,7 +125,7 @@ public class FoodSelectionController {
     }
 
     /**
-     * Potvrdzuje výber ingrediencií, aktualizuje inventár užívateľa a načítava možné recepty.
+     * Potvrdzuje vyber ingrediencii, aktualizuje inventar uzivatela a nacitava mozne recepty.
      */
     @FXML
     protected void handleConfirm() {
@@ -170,7 +170,7 @@ public class FoodSelectionController {
     }
 
     /**
-     * Odhlasuje užívateľa a načítava prihlasovaciu obrazovku.
+     * Odhlasuje uzivatela a nacitava prihlasovaciu obrazovku.
      */
     @FXML
     protected void handleSignOut() {
@@ -197,9 +197,9 @@ public class FoodSelectionController {
     }
 
     /**
-     * Zobrazuje správu.
+     * Zobrazuje spravu.
      *
-     * @param message Text správy.
+     * @param message Text spravy.
      */
     private void showMessage(String message) {
         if (message == null || message.isEmpty()) {
@@ -214,7 +214,7 @@ public class FoodSelectionController {
     }
 
     /**
-     * Označuje všetky potraviny ako vybrané.
+     * Oznacuje vsetky potraviny ako vybrane.
      */
     @FXML
     protected void selectAllFoods() {

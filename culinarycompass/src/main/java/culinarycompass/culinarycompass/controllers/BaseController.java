@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 
 /**
- * Abstraktná trieda, ktorá poskytuje základnú funkcionalitu pre zobrazovanie správ v GUI.
+ * Abstraktna trieda, ktora poskytuje zakladnu funkcionalitu pre zobrazovanie sprav v GUI.
  */
 public abstract class BaseController {
     @FXML
@@ -13,9 +13,9 @@ public abstract class BaseController {
     protected Color messageTextColor = Color.BLACK;
 
     /**
-     * Zobrazí správu v príslušnom grafickom prvku.
+     * Zobrazi spravu v prislusnom grafickom prvku.
      *
-     * @param message Text správy, ktorá sa má zobraziť.
+     * @param message Text spravy, ktora sa ma zobrazit.
      */
     protected void showMessage(String message) {
         if (messageLabel != null) {
@@ -26,9 +26,9 @@ public abstract class BaseController {
     }
 
     /**
-     * Nastaví farbu textu zobrazenej správy.
+     * Nastavi farbu textu zobrazenej spravy.
      *
-     * @param color Farba, ktorou sa má správa zobraziť.
+     * @param color Farba, ktorou sa ma sprava zobrazit.
      */
     protected void setMessageTextColor(Color color) {
         this.messageTextColor = color;

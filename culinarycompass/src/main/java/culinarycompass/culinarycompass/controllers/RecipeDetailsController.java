@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 import java.util.*;
 
 /**
- * Kontrolér pre zobrazenie detailov receptu a spracovanie lajkov.
+ * Kontroler pre zobrazenie detailov receptu a spracovanie lajkov.
  */
 public class RecipeDetailsController extends BadgeController {
     @FXML
@@ -47,9 +47,9 @@ public class RecipeDetailsController extends BadgeController {
     private Set<Integer> likedRecipes = new HashSet<>();
 
     /**
-     * Nastaví aktuálneho používateľa.
+     * Nastavi aktualneho pouzivatela.
      * 
-     * @param user Aktuálny používateľ.
+     * @param user Aktualny pouzivatel.
      */
     public void setUser(User user) {
         this.currentUser = user;
@@ -57,9 +57,9 @@ public class RecipeDetailsController extends BadgeController {
     }
 
     /**
-     * Nastaví detaily receptu na zobrazenie.
+     * Nastavi detaily receptu na zobrazenie.
      * 
-     * @param recipe Aktuálny recept.
+     * @param recipe Aktualny recept.
      */
     public void setRecipe(Recipe recipe) {
         this.currentRecipe = recipe;
@@ -77,7 +77,7 @@ public class RecipeDetailsController extends BadgeController {
     }
 
     /**
-     * Aktualizuje ikonu lajku podľa toho, či je recept lajknutý.
+     * Aktualizuje ikonu lajku podla toho, ci je recept lajknuty.
      */
     private void updateLikeIcon() {
         if (likedRecipes.contains(currentRecipe.getId())) {
@@ -88,7 +88,7 @@ public class RecipeDetailsController extends BadgeController {
     }
 
     /**
-     * Spracováva lajkovanie a nelajkovanie receptu.
+     * Spracovava lajkovanie a nelajkovanie receptu.
      */
     @FXML
     protected void handleLike() {
@@ -105,7 +105,7 @@ public class RecipeDetailsController extends BadgeController {
     }
 
     /**
-     * Aktualizuje zobrazenie počtu lajkov.
+     * Aktualizuje zobrazenie poctu lajkov.
      */
     private void updateLikesDisplay() {
         likesLabel.setText(String.valueOf(currentRecipe.getLikes()));
@@ -114,14 +114,14 @@ public class RecipeDetailsController extends BadgeController {
     /**
      * Konfiguruje odznaky (badges) receptu.
      * 
-     * @param recipe Aktuálny recept.
+     * @param recipe Aktualny recept.
      */
     private void configureBadges(Recipe recipe) {
         super.configureBadges(recipe, glutenFreeBadge, notGlutenFreeBadge, veganBadge, notVeganBadge);
     }
 
     /**
-     * Načíta obrázok receptu podľa jeho ID.
+     * Nacita obrazok receptu podla jeho ID.
      * 
      * @param recipeId ID receptu.
      */
@@ -132,7 +132,7 @@ public class RecipeDetailsController extends BadgeController {
     }
 
     /**
-     * Načíta lajknuté recepty pre aktuálneho používateľa.
+     * Nacita lajknute recepty pre aktualneho pouzivatela.
      */
     private void loadLikes() {
         File file = new File("user_likes_" + currentUser.getId() + ".txt");
@@ -149,7 +149,7 @@ public class RecipeDetailsController extends BadgeController {
     }
 
     /**
-     * Zavrie okno s detailmi receptu a vráti sa späť.
+     * Zavrie okno s detailmi receptu a vrati sa spat.
      */
     @FXML
     protected void handleBack() {
