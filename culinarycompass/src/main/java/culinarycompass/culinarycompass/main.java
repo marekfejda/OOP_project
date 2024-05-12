@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Hlavná trieda pre aplikáciu Culinary Compass.
- * Zabezpečuje načítanie receptov a zobrazenie prihlasovacej obrazovky.
+ * Hlavna trieda pre aplikaciu Culinary Compass.
+ * Zabezpecuje nacitanie receptov a zobrazenie prihlasovacej obrazovky.
  */
 public class main extends Application {
 
@@ -21,9 +21,9 @@ public class main extends Application {
     private List<Recipe> allRecipes;
 
     /**
-     * Štartuje hlavnú fázu aplikácie a načítava prihlásenie.
+     * Startuje hlavnu fazu aplikacie a nacitava prihlasenie.
      *
-     * @param primaryStage Hlavná scéna JavaFX aplikácie.
+     * @param primaryStage Hlavna scena JavaFX aplikacie.
      */
     @Override
     public void start(Stage primaryStage) {
@@ -47,27 +47,27 @@ public class main extends Application {
     }
 
     /**
-     * Hlavná metóda, ktorá spúšťa aplikáciu.
+     * Hlavna metoda, ktora spusta aplikaciu.
      *
-     * @param args Argumenty príkazového riadku.
+     * @param args Argumenty prikazoveho riadku.
      */
     public static void main(String[] args) {
         launch(args);
     }
 
     /**
-     * Vráti inštanciu hlavnej triedy aplikácie.
+     * Vrati instanciu hlavnej triedy aplikacie.
      *
-     * @return Inštancia triedy main.
+     * @return Instancia triedy main.
      */
     public static main getInstance() {
         return instance;
     }
 
     /**
-     * Vráti všetky načítané recepty.
+     * Vrati vsetky nacitane recepty.
      *
-     * @return Zoznam všetkých receptov.
+     * @return Zoznam vsetkych receptov.
      */
     public List<Recipe> getAllRecipes() {
         return allRecipes;
