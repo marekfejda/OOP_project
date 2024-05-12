@@ -10,12 +10,21 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Hlavná trieda pre aplikáciu Culinary Compass.
+ * Zabezpečuje načítanie receptov a zobrazenie prihlasovacej obrazovky.
+ */
 public class main extends Application {
 
     private static main instance;
 
     private List<Recipe> allRecipes;
 
+    /**
+     * Štartuje hlavnú fázu aplikácie a načítava prihlásenie.
+     *
+     * @param primaryStage Hlavná scéna JavaFX aplikácie.
+     */
     @Override
     public void start(Stage primaryStage) {
         instance = this;
@@ -37,15 +46,29 @@ public class main extends Application {
         }
     }
 
-    public static void main(String[] args) { // 'main' method name corrected to lowercase
+    /**
+     * Hlavná metóda, ktorá spúšťa aplikáciu.
+     *
+     * @param args Argumenty príkazového riadku.
+     */
+    public static void main(String[] args) {
         launch(args);
     }
 
-
+    /**
+     * Vráti inštanciu hlavnej triedy aplikácie.
+     *
+     * @return Inštancia triedy main.
+     */
     public static main getInstance() {
         return instance;
     }
 
+    /**
+     * Vráti všetky načítané recepty.
+     *
+     * @return Zoznam všetkých receptov.
+     */
     public List<Recipe> getAllRecipes() {
         return allRecipes;
     }
