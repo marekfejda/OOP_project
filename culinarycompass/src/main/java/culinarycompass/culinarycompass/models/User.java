@@ -12,8 +12,8 @@ import java.util.Scanner;
 import java.util.Set;
 
 /**
- * Trieda predstavujúca používateľa s jeho identifikačnými údajmi a inventárom.
- * Táto trieda umožňuje správu inventára a ukladanie/načítavanie prísad z/do súboru.
+ * Trieda predstavujuca pouzivatela s jeho identifikacnymi udajmi a inventarom.
+ * Tato trieda umoznuje spravu inventara a ukladanie/nacitavanie prisad z/do suboru.
  */
 public class User implements Serializable {
     private final String id;
@@ -22,11 +22,11 @@ public class User implements Serializable {
     private Inventory inventory;
 
     /**
-     * Konštruktor triedy User.
+     * Konstruktor triedy User.
      *
-     * @param id Identifikačné číslo používateľa.
-     * @param nickname Prezývka používateľa.
-     * @param password Heslo používateľa.
+     * @param id Identifikacne cislo pouzivatela.
+     * @param nickname Prezyvka pouzivatela.
+     * @param password Heslo pouzivatela.
      */
     public User(String id, String nickname, String password) {
         this.id = id;
@@ -36,45 +36,45 @@ public class User implements Serializable {
     }
 
     /**
-     * Vráti identifikačné číslo používateľa.
+     * Vrati identifikacne cislo pouzivatela.
      *
-     * @return ID používateľa.
+     * @return ID pouzivatela.
      */
     public String getId() {
         return id;
     }
 
     /**
-     * Vráti prezývku používateľa.
+     * Vrati prezyvku pouzivatela.
      *
-     * @return Prezývka používateľa.
+     * @return Prezyvka pouzivatela.
      */
     public String getNickname() {
         return nickname;
     }
 
     /**
-     * Vráti heslo používateľa.
+     * Vrati heslo pouzivatela.
      *
-     * @return Heslo používateľa.
+     * @return Heslo pouzivatela.
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * Vráti inventár používateľa.
+     * Vrati inventar pouzivatela.
      *
-     * @return Inventár používateľa.
+     * @return Inventar pouzivatela.
      */
     public Inventory getInventory() {
         return inventory;
     }
 
     /**
-     * Aktualizuje inventár používateľa so zadanými prísadami.
+     * Aktualizuje inventar pouzivatela so zadanymi prisadami.
      *
-     * @param ingredientNames Množina názvov prísad na aktualizáciu.
+     * @param ingredientNames Mnozina nazvov prisad na aktualizaciu.
      */
     public void updateInventory(Set<String> ingredientNames) {
         inventory.clearInventory();
@@ -82,7 +82,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Uloží vybrané prísady používateľa do textového súboru.
+     * Ulozi vybrane prisady pouzivatela do textoveho suboru.
      */
     public void saveSelectedIngredients() {
         String fileName = new MergeToString<String>().concatenate("_", "user", id, nickname, "ingredients.txt");
@@ -96,8 +96,8 @@ public class User implements Serializable {
     }
 
     /**
-     * Načíta vybrané prísady používateľa zo súboru.
-     * Aktualizuje inventár používateľa s načítanými údajmi.
+     * Nacita vybrane prisady pouzivatela zo suboru.
+     * Aktualizuje inventar pouzivatela s nacitanymi udajmi.
      */
     public void loadSelectedIngredients() {
         String fileName = new MergeToString<String>().concatenate("_", "user", id, nickname, "ingredients.txt");
@@ -117,7 +117,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Uloží inventár používateľa do serializovaného súboru.
+     * Ulozi inventar pouzivatela do serializovaneho suboru.
      */
     public void saveToFile() {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("inventory_serialized_user" + id + ".ser"))) {
@@ -129,15 +129,15 @@ public class User implements Serializable {
     }
 
     /**
-     * Pomocná trieda na spájanie reťazcov s oddelovacím znakom.
+     * Pomocna trieda na spajanie retazcov s oddelovacim znakom.
      */
     public static class MergeToString<T> {
         /**
-         * Spojí položky do jedného reťazca s použitím daného oddeľovača.
+         * Spoji polozky do jedneho retazca s pouzitim daneho oddelovaca.
          *
-         * @param splitChar Oddelovací znak medzi položkami.
-         * @param items Položky na spájanie.
-         * @return Spojený reťazec.
+         * @param splitChar Oddelovaci znak medzi polozkami.
+         * @param items Polozky na spajanie.
+         * @return Spojeny retazec.
          */
         public String concatenate(String splitChar, T... items) {
             StringBuilder sb = new StringBuilder();

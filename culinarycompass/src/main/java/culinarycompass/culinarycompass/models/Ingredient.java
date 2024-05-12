@@ -14,54 +14,54 @@ public class Ingredient implements object2Str {
     private final BooleanProperty selected = new SimpleBooleanProperty(this, "selected", false);
 
     /**
-     * Vytvorí novú ingredienciu so zadaným menom.
+     * Vytvori novu ingredienciu so zadanym menom.
      *
-     * @param name Názov ingrediencie.
+     * @param name Nazov ingrediencie.
      */
     public Ingredient(String name) {
         this.name.set(name);
     }
 
     /**
-     * Vráti vlastnosť indikujúcu, či je ingrediencia vybraná.
+     * Vrati vlastnost indikujucu, ci je ingrediencia vybrana.
      *
-     * @return BooleanProperty, ktorý indikuje vybraný stav.
+     * @return BooleanProperty, ktory indikuje vybrany stav.
      */
     public BooleanProperty selectedProperty() {
         return selected;
     }
 
     /**
-     * Získa názov ingrediencie.
+     * Ziska nazov ingrediencie.
      *
-     * @return Názov ingrediencie.
+     * @return Nazov ingrediencie.
      */
     public String getName() {
         return name.get();
     }
 
     /**
-     * Skontroluje, či je ingrediencia vybraná.
+     * Skontroluje, ci je ingrediencia vybrana.
      *
-     * @return true, ak je ingrediencia vybraná; inak false.
+     * @return true, ak je ingrediencia vybrana; inak false.
      */
     public boolean isSelected() {
         return selected.get();
     }
 
     /**
-     * Nastaví, či je ingrediencia vybraná.
+     * Nastavi, ci je ingrediencia vybrana.
      *
-     * @param selected True, ak je vybraná; false, ak nie.
+     * @param selected True, ak je vybrana; false, ak nie.
      */
     public void setSelected(boolean selected) {
         this.selected.set(selected);
     }
 
     /**
-     * Prevedie ingredienciu na textovú reprezentáciu.
+     * Prevedie ingredienciu na textovu reprezentaciu.
      *
-     * @return Textová reprezentácia ingrediencie.
+     * @return Textova reprezentacia ingrediencie.
      */
     @Override
     public String object2Str() {
@@ -69,9 +69,9 @@ public class Ingredient implements object2Str {
     }
 
     /**
-     * Vráti textovú reprezentáciu ingrediencie.
+     * Vrati textovu reprezentaciu ingrediencie.
      *
-     * @return String reprezentujúci ingredienciu.
+     * @return String reprezentujuci ingredienciu.
      */
     @Override
     public String toString() {

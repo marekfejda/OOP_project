@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Trieda Inventory reprezentuje zoznam vybraných ingrediencií.
+ * Trieda Inventory reprezentuje zoznam vybranych ingrediencii.
  */
 public class Inventory implements Serializable, object2Str {
 
@@ -15,34 +15,34 @@ public class Inventory implements Serializable, object2Str {
     private final Set<String> selectedIngredients = new HashSet<>();
 
     /**
-     * Pridá ingredienciu do inventára.
+     * Prida ingredienciu do inventara.
      *
-     * @param ingredient Názov ingrediencie.
+     * @param ingredient Nazov ingrediencie.
      */
     public void addIngredient(String ingredient) {
         ingredients.add(ingredient.toLowerCase());
     }
 
     /**
-     * Vráti všetky ingrediencie v inventári.
+     * Vrati vsetky ingrediencie v inventari.
      *
-     * @return Sada názvov ingrediencií.
+     * @return Sada nazvov ingrediencii.
      */
     public Set<String> getIngredients() {
         return ingredients;
     }
 
     /**
-     * Vymaže všetky ingrediencie z inventára.
+     * Vymaze vsetky ingrediencie z inventara.
      */
     public void clearInventory() {
         ingredients.clear();
     }
 
     /**
-     * Aktualizuje výber ingrediencií.
+     * Aktualizuje vyber ingrediencii.
      *
-     * @param selectedIngredientNames Zoznam názvov vybraných ingrediencií.
+     * @param selectedIngredientNames Zoznam nazvov vybranych ingrediencii.
      */
     public void updateSelectedIngredients(Set<String> selectedIngredientNames) {
         selectedIngredients.clear();
@@ -50,18 +50,18 @@ public class Inventory implements Serializable, object2Str {
     }
 
     /**
-     * Vráti všetky vybrané ingrediencie.
+     * Vrati vsetky vybrane ingrediencie.
      *
-     * @return Sada vybraných ingrediencií.
+     * @return Sada vybranych ingrediencii.
      */
     public Set<String> getSelectedIngredients() {
         return new HashSet<>(selectedIngredients);
     }
 
     /**
-     * Prevedie zásoby na textovú reprezentáciu.
+     * Prevedie zasoby na textovu reprezentaciu.
      *
-     * @return Textová reprezentácia zásob.
+     * @return Textova reprezentacia zasob.
      */
     @Override
     public String object2Str() {
@@ -71,9 +71,9 @@ public class Inventory implements Serializable, object2Str {
     }
 
     /**
-     * Vráti textovú reprezentáciu zásob.
+     * Vrati textovu reprezentaciu zasob.
      *
-     * @return String reprezentujúci zásoby.
+     * @return String reprezentujuci zasoby.
      */
     @Override
     public String toString() {

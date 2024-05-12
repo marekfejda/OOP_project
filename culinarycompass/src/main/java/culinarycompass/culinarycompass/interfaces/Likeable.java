@@ -1,17 +1,17 @@
 package culinarycompass.culinarycompass.interfaces;
 
 /**
- * Rozhranie na manipuláciu s počtom lajkov.
+ * Rozhranie na manipulaciu s poctom lajkov.
  */
 public interface Likeable {
     
     /**
-     * Zvýši počet lajkov.
+     * Zvysi pocet lajkov.
      */
     void incrementLikes();
     
     /**
-     * Zníži počet lajkov.
+     * Znizi pocet lajkov.
      */
     void decrementLikes();
 }

@@ -1,14 +1,14 @@
 package culinarycompass.culinarycompass.exceptions;
 
 /**
- * Výnimka pre chyby autentifikácie pri zadaní zlých prihlasovacích údajov.
+ * Vynimka pre chyby autentifikacie pri zadani zlych prihlasovacich udajov.
  */
 public class AuthenticationException extends Exception {
 
     /**
-     * Vytvorí novú autentifikačnú výnimku so zadanou správou.
+     * Vytvori novu autentifikacnu vynimku so zadanou spravou.
      *
-     * @param message Správa, ktorá popisuje chybu.
+     * @param message Sprava, ktora popisuje chybu.
      */
     public AuthenticationException(String message) {
         super(message);

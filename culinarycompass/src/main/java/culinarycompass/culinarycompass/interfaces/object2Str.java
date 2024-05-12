@@ -1,14 +1,14 @@
 package culinarycompass.culinarycompass.interfaces;
 
 /**
- * Rozhranie pre konverziu objektu na reťazec.
+ * Rozhranie pre konverziu objektu na retazec.
  */
 public interface object2Str {
     
     /**
-     * Konvertuje objekt na reťazec.
+     * Konvertuje objekt na retazec.
      *
-     * @return Reťazcová reprezentácia objektu.
+     * @return Retazcova reprezentacia objektu.
      */
     String object2Str();
 }

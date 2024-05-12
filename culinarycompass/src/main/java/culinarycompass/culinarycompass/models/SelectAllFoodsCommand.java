@@ -4,8 +4,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
 
 /**
- * Príkaz na výber všetkých potravín.
- * Táto trieda implementuje príkaz na označenie všetkých potravín zo zoznamu ako vybrané.
+ * Prikaz na vyber vsetkych potravin.
+ * Tato trieda implementuje prikaz na oznacenie vsetkych potravin zo zoznamu ako vybrane.
  */
 public class SelectAllFoodsCommand implements culinarycompass.culinarycompass.interfaces.Command {
     private final ObservableList<Ingredient> masterList;
@@ -13,11 +13,11 @@ public class SelectAllFoodsCommand implements culinarycompass.culinarycompass.in
     private final User user;
 
     /**
-     * Konštruktor triedy SelectAllFoodsCommand.
+     * Konstruktor triedy SelectAllFoodsCommand.
      *
-     * @param masterList Zoznam všetkých prísad.
-     * @param foodList Zoznam prísad na zobrazenie.
-     * @param user Používateľ, ktorý vykonáva tento príkaz.
+     * @param masterList Zoznam vsetkych prisad.
+     * @param foodList Zoznam prisad na zobrazenie.
+     * @param user Pouzivatel, ktory vykonava tento prikaz.
      */
     public SelectAllFoodsCommand(ObservableList<Ingredient> masterList, ListView<Ingredient> foodList, User user) {
         this.masterList = masterList;
@@ -26,8 +26,8 @@ public class SelectAllFoodsCommand implements culinarycompass.culinarycompass.in
     }
 
     /**
-     * Označí všetky prísady v masterList ako vybrané a obnoví zobrazenie.
-     * Taktiež uloží vybrané prísady pre používateľa.
+     * Oznaci vsetky prisady v masterList ako vybrane a obnovi zobrazenie.
+     * Taktiez ulozi vybrane prisady pre pouzivatela.
      */
     @Override
     public void execute() {

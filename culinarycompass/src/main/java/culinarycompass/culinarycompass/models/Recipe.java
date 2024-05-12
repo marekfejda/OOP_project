@@ -10,7 +10,7 @@ import culinarycompass.culinarycompass.interfaces.Likeable;
 import culinarycompass.culinarycompass.interfaces.object2Str;
 
 /**
- * Trieda Recipe predstavuje recept a obsahuje súvisiace informácie.
+ * Trieda Recipe predstavuje recept a obsahuje suvisiace informacie.
  */
 public class Recipe implements Likeable, object2Str {
     private int id;
@@ -24,176 +24,176 @@ public class Recipe implements Likeable, object2Str {
     private int likes;
 
     /**
-     * Konštruktor, ktorý vytvára prázdny recept.
+     * Konstruktor, ktory vytvara prazdny recept.
      */
     public Recipe() {
         this.ingredients = new ArrayList<>();
     }
 
     /**
-     * Nastaví identifikačné číslo receptu.
+     * Nastavi identifikacne cislo receptu.
      *
-     * @param id Identifikačné číslo.
+     * @param id Identifikacne cislo.
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Nastaví názov receptu.
+     * Nastavi nazov receptu.
      *
-     * @param name Názov receptu.
+     * @param name Nazov receptu.
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Nastaví ingrediencie potrebné pre recept.
+     * Nastavi ingrediencie potrebne pre recept.
      *
-     * @param ingredients Zoznam ingrediencií.
+     * @param ingredients Zoznam ingrediencii.
      */
     public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
     }
 
     /**
-     * Nastaví časový odhad prípravy.
+     * Nastavi casovy odhad pripravy.
      *
-     * @param timeEstimation Časový odhad.
+     * @param timeEstimation Casovy odhad.
      */
     public void setTimeEstimation(String timeEstimation) {
         this.timeEstimation = timeEstimation;
     }
 
     /**
-     * Nastaví počet porcií receptu.
+     * Nastavi pocet porcii receptu.
      *
-     * @param portions Počet porcií.
+     * @param portions Pocet porcii.
      */
     public void setPortions(int portions) {
         this.portions = portions;
     }
 
     /**
-     * Nastaví text receptu.
+     * Nastavi text receptu.
      *
-     * @param recipeText Textový popis postupu prípravy receptu.
+     * @param recipeText Textovy popis postupu pripravy receptu.
      */
     public void setRecipeText(String recipeText) {
         this.recipeText = recipeText;
     }
 
     /**
-     * Vráti identifikačné číslo receptu.
+     * Vrati identifikacne cislo receptu.
      *
-     * @return Identifikačné číslo.
+     * @return Identifikacne cislo.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Vráti názov receptu.
+     * Vrati nazov receptu.
      *
-     * @return Názov receptu.
+     * @return Nazov receptu.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Vráti zoznam ingrediencií.
+     * Vrati zoznam ingrediencii.
      *
-     * @return Zoznam ingrediencií.
+     * @return Zoznam ingrediencii.
      */
     public List<String> getIngredients() {
         return ingredients;
     }
 
     /**
-     * Vráti časový odhad prípravy receptu.
+     * Vrati casovy odhad pripravy receptu.
      *
-     * @return Časový odhad prípravy.
+     * @return Casovy odhad pripravy.
      */
     public String getTimeEstimation() {
         return timeEstimation;
     }
 
     /**
-     * Vráti počet porcií, ktoré recept pripraví.
+     * Vrati pocet porcii, ktore recept pripravi.
      *
-     * @return Počet porcií.
+     * @return Pocet porcii.
      */
     public int getPortions() {
         return portions;
     }
 
     /**
-     * Vráti textový popis receptu.
+     * Vrati textovy popis receptu.
      *
-     * @return Textový popis receptu.
+     * @return Textovy popis receptu.
      */
     public String getRecipeText() {
         return recipeText;
     }
 
     /**
-     * Skontroluje, či je recept bezlepkový.
+     * Skontroluje, ci je recept bezlepkovy.
      *
-     * @return true, ak je recept bezlepkový; inak false.
+     * @return true, ak je recept bezlepkovy; inak false.
      */
     public boolean isGlutenFree() {
         return isGlutenFree;
     }
 
     /**
-     * Nastaví, či je recept bezlepkový.
+     * Nastavi, ci je recept bezlepkovy.
      *
-     * @param glutenFree True, ak je bezlepkový; false, ak nie.
+     * @param glutenFree True, ak je bezlepkovy; false, ak nie.
      */
     public void setGlutenFree(boolean glutenFree) {
         isGlutenFree = glutenFree;
     }
 
     /**
-     * Skontroluje, či je recept vegetariánsky.
+     * Skontroluje, ci je recept vegetariansky.
      *
-     * @return true, ak je recept vegetariánsky; inak false.
+     * @return true, ak je recept vegetariansky; inak false.
      */
     public boolean isVegetarian() {
         return isVegetarian;
     }
 
     /**
-     * Nastaví, či je recept vegetariánsky.
+     * Nastavi, ci je recept vegetariansky.
      *
-     * @param vegetarian True, ak je vegetariánsky; false, ak nie.
+     * @param vegetarian True, ak je vegetariansky; false, ak nie.
      */
     public void setVegetarian(boolean vegetarian) {
         isVegetarian = vegetarian;
     }
 
     /**
-     * Vráti počet lajkov receptu.
+     * Vrati pocet lajkov receptu.
      *
-     * @return Počet lajkov.
+     * @return Pocet lajkov.
      */
     public int getLikes() {
         return likes;
     }
 
     /**
-     * Nastaví počet lajkov receptu.
+     * Nastavi pocet lajkov receptu.
      *
-     * @param likes Počet lajkov.
+     * @param likes Pocet lajkov.
      */
     public void setLikes(int likes) {
         this.likes = likes;
     }
 
     /**
-     * Zvýši počet lajkov receptu o jeden.
+     * Zvysi pocet lajkov receptu o jeden.
      */
     @Override
     public void incrementLikes() {
@@ -201,7 +201,7 @@ public class Recipe implements Likeable, object2Str {
     }
 
     /**
-     * Zníži počet lajkov receptu o jeden, ak je počet lajkov väčší ako nula.
+     * Znizi pocet lajkov receptu o jeden, ak je pocet lajkov vacsi ako nula.
      */
     @Override
     public void decrementLikes() {
@@ -211,11 +211,11 @@ public class Recipe implements Likeable, object2Str {
     }
 
     /**
-     * Načíta recepty zo súboru.
+     * Nacita recepty zo suboru.
      *
-     * @param filePath Cesta k súboru s receptami.
+     * @param filePath Cesta k suboru s receptami.
      * @return Zoznam receptov.
-     * @throws IOException Ak sa nepodarí prečítať súbor.
+     * @throws IOException Ak sa nepodari precitat subor.
      */
     public static List<Recipe> loadRecipesFromFile(String filePath) throws IOException {
         List<Recipe> recipes = new ArrayList<>();
@@ -258,9 +258,9 @@ public class Recipe implements Likeable, object2Str {
     }
 
     /**
-     * Prevedie recept na textovú reprezentáciu.
+     * Prevedie recept na textovu reprezentaciu.
      *
-     * @return Textová reprezentácia receptu.
+     * @return Textova reprezentacia receptu.
      */
     @Override
     public String object2Str() {
@@ -277,9 +277,9 @@ public class Recipe implements Likeable, object2Str {
     }
 
     /**
-     * Vráti textovú reprezentáciu receptu.
+     * Vrati textovu reprezentaciu receptu.
      *
-     * @return String reprezentujúci recept.
+     * @return String reprezentujuci recept.
      */
     @Override
     public String toString() {
